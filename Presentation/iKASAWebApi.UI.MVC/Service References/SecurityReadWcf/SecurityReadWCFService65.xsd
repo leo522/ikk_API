@@ -1,0 +1,1040 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://intraap.server.kmuh.org.tw/WEB/SecurityRead.Services/SecurityReadWCFService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" />
+  <xs:import schemaLocation="https://intraap.server.kmuh.org.tw/WEB/SecurityRead.Services/SecurityReadWCFService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="https://intraap.server.kmuh.org.tw/WEB/SecurityRead.Services/SecurityReadWCFService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/AppFramework.ApplicationLayer.DTO" />
+  <xs:element name="SecurityInitial">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="inEMPCODE" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SecurityInitialResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SecurityInitialResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserSystemTree">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserSystemTreeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="GetUserSystemTreeResult" nillable="true" type="q1:ArrayOfTreeSysCategory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAppWinMenu">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="App" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAppWinMenuResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetAppWinMenuResult" nillable="true" type="q2:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWinDataAuth">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="App" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="win" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWinDataAuthResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="GetWinDataAuthResult" nillable="true" type="q3:ArrayOfKMUSDATAUTDDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserSystemRole">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="inEMPCODE" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserSystemRoleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetUserSystemRoleResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryUser_Identity">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="inEMPCODE" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryUser_IdentityResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="QueryUser_IdentityResult" nillable="true" type="q4:ArrayOfUser_Identity" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryUserApp">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="User_Identity" nillable="true" type="q5:ArrayOfUser_Identity" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryUserAppResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="QueryUserAppResult" nillable="true" type="q6:ArrayOfKMUSAPPUSERDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryKmusApps">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="User_app" nillable="true" type="q7:ArrayOfKMUSAPPUSERDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryKmusAppsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="QueryKmusAppsResult" nillable="true" type="q8:ArrayOfKMUSAPPDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryKmusAppInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="InAPPLICATION" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryKmusAppInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="QueryKmusAppInfoResult" nillable="true" type="q9:KMUSAPPDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryKmusCategoryApp">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="app" nillable="true" type="q10:ArrayOfKMUSAPPDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryKmusCategoryAppResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="QueryKmusCategoryAppResult" nillable="true" type="q11:ArrayOfKMUSCATEGORY_APPDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryKmusCategory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="CategoryApp" nillable="true" type="q12:ArrayOfKMUSCATEGORY_APPDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryKmusCategoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="QueryKmusCategoryResult" nillable="true" type="q13:ArrayOfKMUSCATEGORYDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryKmusParentCategory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="Category" nillable="true" type="q14:ArrayOfKMUSCATEGORYDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryKmusParentCategoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="QueryKmusParentCategoryResult" nillable="true" type="q15:ArrayOfKMUSCATEGORYDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsWinReadonly">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="inEMPCODE" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="inWindow" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsWinReadonlyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IsWinReadonlyResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryUserWins">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="User_Identity" nillable="true" type="q16:ArrayOfUser_Identity" />
+        <xs:element minOccurs="0" name="inAPPLICATION" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryUserWinsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="QueryUserWinsResult" nillable="true" type="q17:ArrayOfKMUSUSERWINDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryUserAppWins">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="inEMPCODE" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="inAPPLICATION" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryUserAppWinsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="QueryUserAppWinsResult" nillable="true" type="q18:ArrayOfWinData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryKmusWins">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="User_wins" nillable="true" type="q19:ArrayOfKMUSUSERWINDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryKmusWinsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="QueryKmusWinsResult" nillable="true" type="q20:ArrayOfKMUSWINDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryUserWinNode">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="KmusWins" nillable="true" type="q21:ArrayOfKMUSWINDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryUserWinNodeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="QueryUserWinNodeResult" nillable="true" type="q22:ArrayOfKMUSNODEDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryAppNode">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="app" nillable="true" type="q23:ArrayOfKMUSAPPDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryAppNodeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="QueryAppNodeResult" nillable="true" type="q24:ArrayOfKMUSNODEDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryWinDataAuth">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="inEMPCODE" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="inAPPLICATION" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="inWINDOW" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryWinDataAuthResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="QueryWinDataAuthResult" nillable="true" type="q25:ArrayOfWinDataAuth" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryDataAuth">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="inEMPCODE" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="inAPPLICATION" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="inWINDOW" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryDataAuthResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="QueryDataAuthResult" nillable="true" type="q26:ArrayOfKMUSDATAUTDDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetKmuEmp">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="inEmpCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetKmuEmpResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="GetKmuEmpResult" nillable="true" type="q27:KMUEMPDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDeptName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="inDeptCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDeptNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetDeptNameResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetJobName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="inJobCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetJobNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetJobNameResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetKmuChf">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="inEmpCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetKmuChfResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="GetKmuChfResult" nillable="true" type="q28:ArrayOfKMUCHFDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetKMUGROUP_USERs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="inKMUSUSERDto" nillable="true" type="q29:KMUSUSERDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetKMUGROUP_USERsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="GetKMUGROUP_USERsResult" nillable="true" type="q30:V_User_List" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetKMUGROUP_USERs_Contain">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="in_GroupName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetKMUGROUP_USERs_ContainResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="GetKMUGROUP_USERs_ContainResult" nillable="true" type="q31:ArrayOfKMUSUSERDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsUserInGroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="in_GroupName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="in_EmpCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsUserInGroupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IsUserInGroupResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetKMUSUSER_GROUPs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="inKMUSUSERDto" nillable="true" type="q32:KMUSUSERDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetKMUSUSER_GROUPsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="GetKMUSUSER_GROUPsResult" nillable="true" type="q33:V_User_List" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetKMUSUER_GROUPs_Contain">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="in_EmpCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetKMUSUER_GROUPs_ContainResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="GetKMUSUER_GROUPs_ContainResult" nillable="true" type="q34:ArrayOfKMUSUSERDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryWinNodeList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="User_wins" nillable="true" type="q35:ArrayOfKMUSWINDto" />
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="AppNode" nillable="true" type="q36:ArrayOfKMUSNODEDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryWinNodeListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="QueryWinNodeListResult" nillable="true" type="q37:ArrayOfTreeNodes" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryParentNode">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="AppNode" nillable="true" type="q38:ArrayOfKMUSNODEDto" />
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="Node" nillable="true" type="q39:ArrayOfTreeNodes" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryParentNodeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="QueryParentNodeResult" nillable="true" type="q40:ArrayOfTreeNodes" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryTreeAppNode">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="App_info" nillable="true" type="q41:ArrayOfKMUSAPPDto" />
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="TreeWinNode" nillable="true" type="q42:ArrayOfTreeNodes" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryTreeAppNodeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="QueryTreeAppNodeResult" nillable="true" type="q43:ArrayOfTreeApps" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryTreeCategroyApp">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="TreeAppNode" nillable="true" type="q44:ArrayOfTreeApps" />
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="TreeCtegory_app" nillable="true" type="q45:ArrayOfKMUSCATEGORY_APPDto" />
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="TreeCtegory" nillable="true" type="q46:ArrayOfKMUSCATEGORYDto" />
+        <xs:element minOccurs="0" name="PlatformType" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryTreeCategroyAppResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="QueryTreeCategroyAppResult" nillable="true" type="q47:ArrayOfTreeSysCategory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryUserAppTree">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="inEMPCODE" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryUserAppTreeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="QueryUserAppTreeResult" nillable="true" type="q48:ArrayOfTreeSysCategory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryUserAppNode">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="inEMPCODE" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="inNodeType" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryUserAppNodeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="QueryUserAppNodeResult" nillable="true" type="q49:ArrayOfApplicationMenu" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReadAllMenus">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReadAllMenusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="ReadAllMenusResult" nillable="true" type="q50:ArrayOfApplicationMenu" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllMenus">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllMenusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="GetAllMenusResult" nillable="true" type="q51:ArrayOfApplicationMenu" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReadMenusByUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReadMenusByUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="ReadMenusByUserResult" nillable="true" type="q52:ArrayOfApplicationMenu" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMenusByUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMenusByUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="GetMenusByUserResult" nillable="true" type="q53:ArrayOfApplicationMenu" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateFavoriteMenu">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="menu" nillable="true" type="q54:SecurityApplicationMenu" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateFavoriteMenuResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="CreateFavoriteMenuResult" nillable="true" type="q55:ApplicationMenu" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteFavoriteMenu">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="menu" nillable="true" type="q56:SecurityApplicationMenu" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteFavoriteMenuResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/AppFramework.ApplicationLayer.DTO" minOccurs="0" name="DeleteFavoriteMenuResult" nillable="true" type="q57:BoolMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateMenuLog">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="menu" nillable="true" type="q58:SecurityApplicationMenu" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateMenuLogResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/AppFramework.ApplicationLayer.DTO" minOccurs="0" name="CreateMenuLogResult" nillable="true" type="q59:BoolMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateStartupMenu">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="menu" nillable="true" type="q60:SecurityApplicationMenu" />
+        <xs:element minOccurs="0" name="condition" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateStartupMenuResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/AppFramework.ApplicationLayer.DTO" minOccurs="0" name="CreateStartupMenuResult" nillable="true" type="q61:BoolMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStartupMenu">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q62="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="condition_List" nillable="true" type="q62:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStartupMenuResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q63="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetStartupMenuResult" nillable="true" type="q63:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPropertiesByMenu">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q64="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="menu" nillable="true" type="q64:ApplicationMenu" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPropertiesByMenuResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q65="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="GetPropertiesByMenuResult" nillable="true" type="q65:MenuProperty" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReadPropertiesByMenu">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q66="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="menu" nillable="true" type="q66:ApplicationMenu" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReadPropertiesByMenuResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q67="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="ReadPropertiesByMenuResult" nillable="true" type="q67:MenuProperty" />
+        <xs:element minOccurs="0" name="exist" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPropertiesByMenuAction">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q68="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="menu" nillable="true" type="q68:ApplicationMenu" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPropertiesByMenuActionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q69="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="GetPropertiesByMenuActionResult" nillable="true" type="q69:MenuProperty" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateMenu">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q70="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="menu" nillable="true" type="q70:ApplicationMenu" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateMenuResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q71="http://schemas.datacontract.org/2004/07/AppFramework.ApplicationLayer.DTO" minOccurs="0" name="UpdateMenuResult" nillable="true" type="q71:BoolMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteMenu">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q72="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="menu" nillable="true" type="q72:ApplicationMenu" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteMenuResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q73="http://schemas.datacontract.org/2004/07/AppFramework.ApplicationLayer.DTO" minOccurs="0" name="DeleteMenuResult" nillable="true" type="q73:BoolMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateMenu">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q74="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="menu" nillable="true" type="q74:ApplicationMenu" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateMenuResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q75="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="CreateMenuResult" nillable="true" type="q75:ApplicationMenu" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReadAllRolesByMenu">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="menuId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReadAllRolesByMenuResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q76="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="ReadAllRolesByMenuResult" nillable="true" type="q76:ApplicationPermission" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllRolesForMenu">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="menuId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllRolesForMenuResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q77="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="GetAllRolesForMenuResult" nillable="true" type="q77:ApplicationPermission" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SavePropertiesByMenu">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q78="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="menuProperty" nillable="true" type="q78:MenuProperty" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SavePropertiesByMenuResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q79="http://schemas.datacontract.org/2004/07/AppFramework.ApplicationLayer.DTO" minOccurs="0" name="SavePropertiesByMenuResult" nillable="true" type="q79:BoolMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GrantRolesToMenu">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q80="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="applicationRole" nillable="true" type="q80:ApplicationPermission" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GrantRolesToMenuResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q81="http://schemas.datacontract.org/2004/07/AppFramework.ApplicationLayer.DTO" minOccurs="0" name="GrantRolesToMenuResult" nillable="true" type="q81:BoolMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setDBName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="inDBName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setDBNameResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMenusByUserAndPlatform">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="inEMPCODE" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="inPlatformType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="inWWWDISABLED" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMenusByUserAndPlatformResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q82="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="GetMenusByUserAndPlatformResult" nillable="true" type="q82:ArrayOfKMUSAPPDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAppByUserAndPlatform">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="inEMPCODE" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="inPlatformType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="inWWWDISABLED" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAppByUserAndPlatformResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q83="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="GetAppByUserAndPlatformResult" nillable="true" type="q83:ArrayOfKMUSAPPDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRecentByUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="inEMPCODE" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="inPlatformType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="inLimitDays" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRecentByUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q84="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="GetRecentByUserResult" nillable="true" type="q84:ArrayOfKMUSAPPCOUNTDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddKmusLoginInfoLog">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="inSysID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="inEmpcode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="inUserIP" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="inAddUsualFlag" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddKmusLoginInfoLogResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q85="http://schemas.datacontract.org/2004/07/AppFramework.ApplicationLayer.DTO" minOccurs="0" name="AddKmusLoginInfoLogResult" nillable="true" type="q85:BoolMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetKMUSMISDto">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetKMUSMISDtoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q86="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="GetKMUSMISDtoResult" nillable="true" type="q86:ArrayOfV_KMUSMIDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCategoryList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="inPlatformType" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCategoryListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q87="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="GetCategoryListResult" nillable="true" type="q87:ArrayOfKMUSCATEGORYDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFavouriteMenusID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="inEMPCODE" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFavouriteMenusIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q88="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetFavouriteMenusIDResult" nillable="true" type="q88:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFavouriteMenusByUserAndPlatform">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="inEMPCODE" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="inPlatformType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="inWWWDISABLED" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFavouriteMenusByUserAndPlatformResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q89="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="GetFavouriteMenusByUserAndPlatformResult" nillable="true" type="q89:ArrayOfKMUSAPPDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddFavoriteMenu">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="inEMPCODE" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="inAPPLICATION" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddFavoriteMenuResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q90="http://schemas.datacontract.org/2004/07/AppFramework.ApplicationLayer.DTO" minOccurs="0" name="AddFavoriteMenuResult" nillable="true" type="q90:BoolMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveFavoriteMenu">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="inEMPCODE" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="inAPPLICATION" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveFavoriteMenuResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q91="http://schemas.datacontract.org/2004/07/AppFramework.ApplicationLayer.DTO" minOccurs="0" name="RemoveFavoriteMenuResult" nillable="true" type="q91:BoolMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckTempInquiry">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="empCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userIP" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckTempInquiryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q92="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="CheckTempInquiryResult" nillable="true" type="q92:TempInquiry" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckTempForceInput">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="empCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckTempForceInputResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q93="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="CheckTempForceInputResult" nillable="true" type="q93:TempInquiry" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetKMUSMIDto">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="inMenuId" nillable="true" type="xs:string" />
+        <xs:element xmlns:q94="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="inTreeNodeType" type="q94:TreeNodeType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetKMUSMIDtoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q95="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="GetKMUSMIDtoResult" nillable="true" type="q95:ArrayOfV_KMUSMIDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTreeNodeType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q96="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="inTreeNode" nillable="true" type="q96:ApplicationMenu" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTreeNodeTypeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q97="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" minOccurs="0" name="GetTreeNodeTypeResult" type="q97:TreeNodeType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckPermissionsByUrl">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="inEMPCODE" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="inUrl" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="inDBName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckPermissionsByUrlResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q98="http://schemas.datacontract.org/2004/07/AppFramework.ApplicationLayer.DTO" minOccurs="0" name="CheckPermissionsByUrlResult" nillable="true" type="q98:BoolMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckPermissions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="inEMPCODE" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="inAPPLICATION" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="inDBName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckPermissionsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q99="http://schemas.datacontract.org/2004/07/AppFramework.ApplicationLayer.DTO" minOccurs="0" name="CheckPermissionsResult" nillable="true" type="q99:BoolMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InitConnectionString">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InitConnectionStringResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="InitConnectionStringResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

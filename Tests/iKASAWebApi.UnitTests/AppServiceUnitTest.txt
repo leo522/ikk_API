@@ -1,0 +1,27 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using NUnit.Framework;
+using KMUH.iKASAWebApi.ApplicationLayer.DTO;
+using KMUH.iKASAWebApi.ApplicationLayer.Services;
+using KMUH.iKASAWebApi.DomainModel.Entities;
+
+
+namespace KMUH.iKASAWebApi.Services
+{
+	[TestFixture]
+	public partial class iKASAWebApiAppServiceTest
+	{
+		private IiKASAWebApiAppService service = new iKASAWebApiAppService();		
+
+		[Test]
+		[Ignore()]
+		public  void InsertInternFormListTest()
+		{
+			Assert.IsTrue(true);
+		}
+
+	}
+}
+
+

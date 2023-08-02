@@ -1,0 +1,133 @@
+﻿.body {
+        background-color: #f5f5f5;
+    }
+h2 {
+    text-align: center;     
+        
+    text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.2), 0 20px 20px rgba(0,0,0,.15);
+}
+   
+    td {
+    vertical-align: top;
+        
+}
+   
+    hr {
+    height: 1px;
+    border: none;
+    border-top: 2px dashed #444444;
+}
+.buttoncheck {
+    background-color: #364f6b;
+    font-family: 微軟正黑體;
+    width: 45px;
+    color: #fff;
+    border: 1.5px solid #123864;
+}
+.buttonset {
+    background-color: #EB9900;
+    font-family: 微軟正黑體;
+    width: 45px;
+    color: #fff;
+    border: 1.5px solid #805300;
+}
+.buttondel {
+    background-color: #C20000;
+    font-family: 微軟正黑體;
+    width: 45px;
+    color: #fff;
+    border: 1.5px solid #800000;
+}
+.buttonedit {
+    background-color: #00A300;
+    font-family: 微軟正黑體;
+    width: 45px;
+    color: #fff;
+    border: 1.5px solid #008000;
+}
+    .buttonstyle3{
+    font-family: 微軟正黑體;
+    margin-top: 5px;
+    border: 1.5px solid #fff;
+    background-color: #fc5185;
+    border-radius: 12px;
+    color: #fff;
+    height: 35px;
+    width: 70px;
+    outline: none;
+    border-radius: 10px;
+}
+.buttonstyle2{
+    font-family: 微軟正黑體;
+    margin-top: 5px;
+    border: 1.5px solid #fff;
+    background-color: #3fc1c9;
+    border-radius: 12px;
+    color: #fff;
+    height: 35px;
+    width: 70px;
+    outline: none;
+    border-radius: 10px;
+}
+#Sample, #del_sample,.style ,.buttonstyle{
+    font-family: 微軟正黑體;
+    margin-top: 5px;
+    border: 1.5px solid #fff;
+    background-color: #364f6b;
+        
+    color: #fff;
+    height: 35px;
+    width: 220px;
+    outline: none;
+    border-radius: 10px;
+}
+#del_sample ,.buttonstyle{
+    width: 70px;
+    border-radius: 12px;
+    font-family: 微軟正黑體;
+}
+#QID {
+    background-color: gainsboro;
+}
+    
+.inline {
+    Display: inline-block;
+}
+p {
+    font-family: 微軟正黑體;
+    font-weight:bold;
+    font-size:medium;
+}
+.checktable {
+    vertical-align: middle;
+    padding: 7px;
+
+}
+.line {
+    border-bottom-style: solid;
+    border-bottom-color: #fc5185;
+    font-weight:700;
+    font-size: 14px;
+}
+input[readonly]{
+    background-color: #eeeeee;
+    font-size: 1em;
+}
+
+h3 span.line {
+    font-weight: bold; 
+    font-size:x-large; 
+    font-family:標楷體;
+}
+
+/* 蓋掉使用的magic-check.css的設定 讓checkbox label被disabled時 字體也能顯示明顯一點 */
+[name="allHosp"].magic-checkbox[disabled] + label,
+[name="check"].magic-checkbox[disabled] + label {
+    color: black;
+}
+
+.hiddenOverFlow {
+   overflow:hidden;         /*--設定超出的內容隱藏, IE, FireFox通用--*/
+   text-overflow:ellipsis;  /*--(IE專用)在內容超出時,在後方補上逗號--*/
+   white-space:nowrap;      /*-- 設定內容強制顯示一行,直到內容結束或<br>--*/ 
+}

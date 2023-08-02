@@ -1,0 +1,319 @@
+﻿.auto-style2 {
+    background-color: #00CACA;
+    color: darkblue;
+}
+
+.auto-style3 {
+    height: 50px;
+    color: darkblue;
+}
+
+.auto-style4 {
+    color: black;
+    font-size: 50px;
+}
+
+/**********************非技術項目**********************/
+
+/*第一層外框*/
+#MainContent_gvCheckForNurse {
+   
+} 
+
+/*項次*/
+#MainContent_gvCheckForNurse_Label1_0 {
+    width: 48px;
+}
+
+/*項目名稱*/
+#MainContent_gvCheckForNurse_Label2_0 {
+    width: 175px;
+}
+
+/*目前分級*/
+#MainContent_gvCheckForNurse_Label3_0 {
+    width: 50px;
+}
+
+/*標籤1-第一層*/
+#MainContent_gvCheckForNurse_lblCheckStatus_0 {
+    width: 165px;
+    background-color: #FFFFCC;
+}
+
+/*標籤2-第一層*/
+#MainContent_gvCheckForNurse_lblCheckResult1_0 {
+    width: 165px;
+}
+
+/*標籤3-第一層*/
+/*#MainContent_gvCheckForNurse_lblCheckResult2_0 {
+    width: 630px;
+}*/
+#MainContent_gvCheckForNurse_lblCheckStatus2_0 {
+    width: 620px;
+}
+
+
+/*標籤1-第二層*/
+#MainContent_gvCheckForNurse_lblCheckDate_1 {
+    background-color: #FFFFCC;
+}
+
+/*標籤1-第二層*/
+#MainContent_gvCheckForNurse_lblCheckResult_1 {
+    background-color: #FFFFCC;
+}
+
+/*標籤1-第二層*/
+#MainContent_gvCheckForNurse_lblCheckTeacher_1 {
+    background-color: #FFFFCC;
+}
+
+/*標籤1-第三層*/
+#MainContent_gvCheckForNurse_lblCheckStatus_2 {
+    background-color: #FFFFCC;
+}
+
+/*標籤1-第三層*/
+#MainContent_gvCheckForNurse_lblCheckStatus_3 {
+    background-color: #FFFFCC;
+}
+
+
+/**********************技術項目**********************/
+
+/*項次*/
+#MainContent_GridView1_Label1_0 {
+    width: 48px;
+}
+
+/*項目名稱*/
+#MainContent_GridView1_Label2_0 {
+    width: 175px;
+}
+
+/*目前分級*/
+#MainContent_GridView1_Label3_0 {
+    width: 50px;
+}
+
+/*標籤1-第一層*/
+#MainContent_GridView1_lblCheckStatus_0 {
+    width: 165px;
+    background-color: #FFFFCC;
+}
+
+
+/*標籤1-第二層*/
+#MainContent_GridView1_lblCheckStatus_1 {
+    background-color: #FFFFCC;
+}
+
+/*標籤1-第三-1層*/
+#MainContent_GridView1_lblCheckDate_2 {
+    background-color: #FFFFCC;
+}
+
+/*標籤1-第三-2層*/
+#MainContent_GridView1_lblCheckResult_2 {
+    background-color: #FFFFCC;
+}
+
+/*標籤1-第三-2層*/
+#MainContent_GridView1_lblCheckTeacher_2 {
+    background-color: #FFFFCC;
+}
+
+/*標籤1-第四層*/
+#MainContent_GridView1_lblCheckStatus_3 {
+    background-color: #FFFFCC;
+}
+
+/*標籤1-第五-1層*/
+#MainContent_GridView1_lblCheckDate_4 {
+    background-color: #FFFFCC;
+}
+
+/*標籤1-第五-2層*/
+#MainContent_GridView1_lblCheckResult_4 {
+    background-color: #FFFFCC;
+}
+
+/*標籤1-第五-3層*/
+#MainContent_GridView1_lblCheckTeacher_4 {
+    background-color: #FFFFCC;
+}
+
+/*標籤1-第六-1層*/
+#MainContent_GridView1_lblCheckDate_5 {
+    background-color: #FFFFCC;
+}
+
+/*標籤1-第六-2層*/
+#MainContent_GridView1_lblCheckResult_5 {
+    background-color: #FFFFCC;
+}
+
+/*標籤1-第六-3層*/
+#MainContent_GridView1_lblCheckTeacher_5 {
+    background-color: #FFFFCC;
+}
+
+/*標籤1-第七層*/
+#MainContent_GridView1_lblCheckStatus_6 {
+    background-color: #FFFFCC;
+}
+
+/*標籤1-第八-1層*/
+#MainContent_GridView1_lblCheckDate_6 {
+    background-color: #FFFFCC;
+}
+
+/*標籤1-第八-2層*/
+#MainContent_GridView1_lblCheckResult_6 {
+    background-color: #FFFFCC;
+}
+
+/*標籤1-第八-3層*/
+#MainContent_GridView1_lblCheckTeacher_6 {
+    background-color: #FFFFCC;
+}
+
+/*標籤1-第九-1層*/
+#MainContent_GridView1_lblCheckDate_7 {
+    background-color: #FFFFCC;
+}
+
+/*標籤1-第九-2層*/
+#MainContent_GridView1_lblCheckResult_7 {
+    background-color: #FFFFCC;
+}
+
+/*標籤1-第九-3層*/
+#MainContent_GridView1_lblCheckTeacher_7 {
+    background-color: #FFFFCC;
+}
+
+/*標籤1-第十層*/
+#MainContent_GridView1_lblCheckStatus_9 {
+    background-color: #FFFFCC;
+}
+
+/*標籤1-第十一-1層*/
+#MainContent_GridView1_lblCheckDate_10 {
+    background-color: #FFFFCC;
+}
+
+/*標籤1-第十一-2層*/
+#MainContent_GridView1_lblCheckResult_10 {
+    background-color: #FFFFCC;
+}
+
+/*標籤1-第十一-3層*/
+#MainContent_GridView1_lblCheckTeacher_10 {
+    background-color: #FFFFCC;
+}
+
+/*標籤1-第十二層*/
+#MainContent_GridView1_lblCheckStatus_11 {
+    background-color: #FFFFCC;
+}
+
+/*標籤1-第十三層*/
+#MainContent_GridView1_lblCheckStatus_12 {
+    background-color: #FFFFCC;
+}
+
+/*標籤1-第十四層*/
+#MainContent_GridView1_lblCheckStatus_13 {
+    background-color: #FFFFCC;
+}
+
+/*標籤1-第十五層*/
+#MainContent_GridView1_lblCheckStatus_14 {
+    background-color: #FFFFCC;
+}
+
+/*標籤1-第十六層*/
+#MainContent_GridView1_lblCheckStatus_15 {
+    background-color: #FFFFCC;
+}
+
+/*標籤1-第十七層*/
+#MainContent_GridView1_lblCheckStatus_16 {
+    background-color: #FFFFCC;
+}
+
+
+
+
+
+
+/*標籤2-第一層*/
+#MainContent_GridView1_lblCheckStatus1_0 {
+    width: 165px;
+    background-color:#CCFFCC
+}
+
+/*標籤2-第九-1層*/
+#MainContent_GridView1_lblCheckDate1_8 {
+    background-color:#CCFFCC
+}
+
+/*標籤2-第九-2層*/
+#MainContent_GridView1_lblCheckResult1_8 {
+    background-color:#CCFFCC
+}
+
+/*標籤2-第九-3層*/
+#MainContent_GridView1_lblCheckTeacher1_8 {
+    background-color:#CCFFCC
+}
+
+/*標籤2-第十一-1層*/
+#MainContent_GridView1_lblCheckDate1_10 {
+    background-color:#CCFFCC
+}
+
+/*標籤2-第十一-2層*/
+#MainContent_GridView1_lblCheckResult1_10 {
+    background-color:#CCFFCC
+}
+
+/*標籤2-第十一-3層*/
+#MainContent_GridView1_lblCheckTeacher1_10 {
+    background-color:#CCFFCC
+}
+
+
+
+
+
+
+/*標籤3-第一層*/
+#MainContent_GridView1_lblCheckStatus2_0 {
+    width: 650px;
+    background-color:#CCFFFF
+}
+
+
+/*標籤3-第九-1層*/
+#MainContent_GridView1_lblCheckDate2_8 {
+    background-color:#CCFFFF
+}
+
+/*標籤3-第九-2層*/
+#MainContent_GridView1_lblCheckResult2_8 {
+    background-color:#CCFFFF
+}
+
+/*標籤3-第九-3層*/
+#MainContent_GridView1_lblCheckTeacher2_8 {
+    background-color:#CCFFFF
+}
+
+/*標籤3-第十一層*/
+#MainContent_GridView1_lblCheckStatus2_10 {
+    background-color:#CCFFFF
+}

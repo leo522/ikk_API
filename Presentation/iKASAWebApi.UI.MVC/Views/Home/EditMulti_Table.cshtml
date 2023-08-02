@@ -1,0 +1,44 @@
+﻿@{
+
+}
+
+<br /><br />
+<div class="form-horizontal">
+
+        <div>
+            <button type="button" id="temp-save" class="btn btn-default">
+                暫存
+            </button>
+            <button type="button" id="create-user" class="btn btn-info">儲存並送出</button>
+        </div>
+        <div class="col-xs-12" style="height:5px">&nbsp;</div>
+        <div>
+            <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#main-tab">主表單</a></li>
+                <li><a data-toggle="tab" href="#detail-tab1">次表單1</a></li>
+                <li><a data-toggle="tab" href="#detail-tab2">次表單2</a></li>
+                @*<li style="float: right;">
+                                        <button type="button" id="temp-save" class="btn btn-default">
+                        暫存
+                    </button>
+                    <button type="button" id="create-user" class="btn btn-info">儲存並送出</button>
+                            </li>*@
+            </ul>
+        </div>
+
+        <div class="tab-content">
+            <div id="main-tab" class="tab-pane fade in active">
+                @{ Html.RenderPartial("MasterPartial"); }
+                @* @{ Html.RenderPartial("MasterPartial", Model, ViewData); }*@
+            </div>
+            <div id="detail-tab1" class="tab-pane fade">
+                @{ Html.RenderPartial("OneDetailPartial"); }
+                @* @{ Html.RenderPartial("OneDetailPartial", Model, ViewData); }*@
+            </div>
+            <div id="detail-tab2" class="tab-pane fade">
+                @{ Html.RenderPartial("TwoDetailPartial"); }
+                @* @{ Html.RenderPartial("TwoDetailPartial", Model, ViewData); }*@
+            </div>
+        </div>
+
+</div>

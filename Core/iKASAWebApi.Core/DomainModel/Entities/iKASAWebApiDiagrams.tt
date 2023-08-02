@@ -1,0 +1,19 @@
+﻿<#@ import namespace="System.Runtime.Remoting.Messaging" #>
+<#@ include file="T4Toolbox.tt" #>
+<#@ include file="%AppSmartT4%\T4Utility.ttinclude" #>
+
+<#
+	var setting = new ModelTemplateSetting();
+	setting.ClassName = "iKASAWebApi";
+	setting.VSVersion = "2013";
+    setting.TelerikDataAccessVersion = "2013.3 1320";
+	setting.GenerateBaseClass = true;
+	setting.OutputProject = @"..\..\iKASAWebApi.Core.csproj";
+	setting.DefaultNamespace = "KMUH.iKASAWebApi";
+	setting.ImplementPropertyChanged = false;
+	setting.ImplementIDataErrorInfo = false;
+
+	ProcessModelTemplate(setting);
+	
+	Host.SetFileExtension(".log");
+#>

@@ -1,0 +1,108 @@
+﻿
+    .RadScheduler .rsMonthView .rsApt
+    {
+        width :100% !important;
+        height:auto !important;
+        position: static !important;  
+        min-height: 20px !important;
+        min-width: 40px !important;
+
+    }    
+    .RadScheduler .rsMonthView .rsWrap 
+
+    { 
+            position: relative !important;
+
+            height: auto !important;         
+            overflow: hidden; 
+
+            font-size: 0; 
+
+            line-height: 0;      
+            min-height: 20px  !important;
+            min-width: 40px !important;
+
+    }     
+
+    .RadScheduler .rsMonthView .rsAptOut, 
+    .RadScheduler .rsMonthView .rsAptMid,
+    .RadScheduler .rsMonthView .rsAptIn
+    { 
+
+            position: relative !important;
+
+            height: auto !important; 
+    } 
+    .RadScheduler .rsMonthView .rsAptContent
+    { 
+        
+            height: auto !important; 
+            position: relative !important; 
+
+            border-top: 0; 
+
+            border-bottom: 0; 
+
+            left: 0; 
+
+            top: 0; 
+            min-height: 20px !important;
+    } 
+
+
+
+
+
+
+
+
+    
+    .RadScheduler .rsWeekView .rsApt
+    {
+        width :100% !important;
+        height:auto !important;
+        position: static !important;  
+        min-height: 20px !important;
+        min-width: 40px !important;
+
+    }    
+    .RadScheduler .rsWeekView .rsWrap 
+
+    { 
+            position: relative !important;
+
+            height: auto !important;         
+            overflow: hidden; 
+
+            font-size: 0; 
+
+            line-height: 0;      
+            min-height: 20px  !important;
+            min-width: 40px !important;
+
+    }     
+
+    .RadScheduler .rsWeekView .rsAptOut, 
+    .RadScheduler .rsWeekView .rsAptMid,
+    .RadScheduler .rsWeekView .rsAptIn
+    { 
+
+            position: relative !important;
+
+            height: auto !important; 
+    } 
+    .RadScheduler .rsWeekView .rsAptContent
+    { 
+        
+            height: auto !important; 
+            position: relative !important; 
+
+            border-top: 0; 
+
+            border-bottom: 0; 
+
+            left: 0; 
+
+            top: 0; 
+            min-height: 20px !important;
+    } 

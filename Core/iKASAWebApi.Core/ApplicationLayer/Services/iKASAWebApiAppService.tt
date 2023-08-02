@@ -1,0 +1,23 @@
+﻿<#@ import namespace="System.Runtime.Remoting.Messaging" #>
+<#@ include file="T4Toolbox.tt" #>
+<#@ include file="%AppSmartT4%\T4Utility.ttinclude" #>
+
+<#
+	var setting = new AppTemplateSetting();
+	setting.ClassName = "iKASAWebApiAppService";
+	setting.ProjectName = "iKASAWebApi";
+//	setting.WindowsFormsProject = @"..\..\..\..\Presentation\iKASAWebApi.UI.Windows\iKASAWebApi.UI.Windows.csproj";
+	setting.WCFProject = @"..\..\..\..\Services\iKASAWebApi.Services\iKASAWebApi.Services.csproj";
+	setting.UnitTestProject = @"..\..\..\..\Tests\iKASAWebApi.UnitTests\iKASAWebApi.UnitTests.csproj";
+	setting.CoreProject = @"..\..\iKASAWebApi.Core.csproj";
+    setting.GenerateListControlExtensions = true;
+	setting.GenerateBindingSourceExtensions = true;
+	setting.GenerateCodeRefWCFService = true;
+	setting.WCFInstancing = "PerCall";
+	setting.WCFConcurrency = "Single";
+	ProcessAppTemplate(setting);
+	ProcessNormalAppTemplate(setting);
+	AddCoreProjectReference();
+	
+	Host.SetFileExtension(".log");
+#>

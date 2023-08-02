@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0691ABF2-B3C7-43BF-9862-2D8D1299CE58}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.Core", "3.Core", "{55306F7B-4C64-4898-8509-F6354872DDC4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.Distributed Services Layer", "2.Distributed Services Layer", "{66DEB68A-2932-488A-AD09-0D058937777E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{EBDAEAA8-52EE-4933-BE88-D33EF13DF9B6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.Presentation", "1.Presentation", "{65CD0C8D-E45C-4B24-B4A7-F147865DD391}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iKASAWebApi.Core", "Core\iKASAWebApi.Core\iKASAWebApi.Core.csproj", "{8A7F32AE-B05A-4C5E-BA8B-A5966CD2F71C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iKASAWebApi.Services", "Services\iKASAWebApi.Services\iKASAWebApi.Services.csproj", "{9785B463-F9F8-456A-BAF3-482E6B256196}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iKASAWebApi.UnitTests", "Tests\iKASAWebApi.UnitTests\iKASAWebApi.UnitTests.csproj", "{028D6E20-7D82-42E5-A7A0-CB32ADE05DCC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iKASAWebApi.UI.MVC", "Presentation\iKASAWebApi.UI.MVC\iKASAWebApi.UI.MVC.csproj", "{25ADE4AE-0009-4FAD-9D30-0D6EABEAE911}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8A7F32AE-B05A-4C5E-BA8B-A5966CD2F71C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A7F32AE-B05A-4C5E-BA8B-A5966CD2F71C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A7F32AE-B05A-4C5E-BA8B-A5966CD2F71C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A7F32AE-B05A-4C5E-BA8B-A5966CD2F71C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9785B463-F9F8-456A-BAF3-482E6B256196}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9785B463-F9F8-456A-BAF3-482E6B256196}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9785B463-F9F8-456A-BAF3-482E6B256196}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9785B463-F9F8-456A-BAF3-482E6B256196}.Release|Any CPU.Build.0 = Release|Any CPU
+		{028D6E20-7D82-42E5-A7A0-CB32ADE05DCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{028D6E20-7D82-42E5-A7A0-CB32ADE05DCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{028D6E20-7D82-42E5-A7A0-CB32ADE05DCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{028D6E20-7D82-42E5-A7A0-CB32ADE05DCC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25ADE4AE-0009-4FAD-9D30-0D6EABEAE911}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25ADE4AE-0009-4FAD-9D30-0D6EABEAE911}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25ADE4AE-0009-4FAD-9D30-0D6EABEAE911}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25ADE4AE-0009-4FAD-9D30-0D6EABEAE911}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8A7F32AE-B05A-4C5E-BA8B-A5966CD2F71C} = {55306F7B-4C64-4898-8509-F6354872DDC4}
+		{9785B463-F9F8-456A-BAF3-482E6B256196} = {66DEB68A-2932-488A-AD09-0D058937777E}
+		{028D6E20-7D82-42E5-A7A0-CB32ADE05DCC} = {EBDAEAA8-52EE-4933-BE88-D33EF13DF9B6}
+		{25ADE4AE-0009-4FAD-9D30-0D6EABEAE911} = {65CD0C8D-E45C-4B24-B4A7-F147865DD391}
+	EndGlobalSection
+EndGlobal

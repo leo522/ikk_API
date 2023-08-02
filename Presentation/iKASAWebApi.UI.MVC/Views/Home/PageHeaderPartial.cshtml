@@ -1,0 +1,36 @@
+﻿@* <div class="container"> *@
+<div class="wide-container">
+    <div class="navbar-header" style="margin-top:5px;">
+        <div class="navbar-toggle col-xs-12 small-navbar">
+            <div class="col-xs-10  hiddenOverFlow">
+                <span class="title-desc" style="margin-left: 45px;">@ViewBag.SystemName</span>
+            </div>
+            <div class="col-xs-2" style="text-align:right">
+                <button type="button" class="bgcolor_topbar" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="glyphicon glyphicon-user user-icon"></span>
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1">
+        <div class="row">
+            <div class="col-sm-8  hidden-xs">
+                <div class="col-xs-12"  style="margin-top: 3px;">
+                    <img class="logo-img" src="@Url.Content("~/Images/Logo.png")">&nbsp;&nbsp;
+                    <span class="title-desc">@ViewBag.SystemName</span>
+                </div>
+            </div>
+            <div class="col-sm-4 col-xs-12" style="text-align: right; margin-top: 3px;">
+                <span class="login-info" style="display:inline-block; text-align:left">
+                    @Html.Raw(ViewBag.UserInfo)
+                </span>&nbsp;&nbsp;
+                @*<span class="glyphicon glyphicon-user user-icon"></span>&nbsp;*@
+            </div>
+            <div class="clearfix visible-xs-block"></div>
+        </div>
+    </div>
+    <div class="col-xs-12" style="height:3px">&nbsp;</div>
+</div>

@@ -1,0 +1,26 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Web.Http;
+using KMUH.iKASAWebApi.ApplicationLayer.DTO;
+using KMUH.iKASAWebApi.ApplicationLayer.Services;
+
+
+namespace KMUH.iKASAWebApi.Services
+{
+	
+	public partial class iKASAWebApiAppServiceController : ApiController
+	{
+		private IiKASAWebApiAppService service = new iKASAWebApiAppService();
+
+		public void InsertInternFormList(string TargetID, string INSTANCE_NAME, string INHOSPID)
+		{
+			service.InsertInternFormList(TargetID, INSTANCE_NAME, INHOSPID);
+		}
+
+	}
+}
+
+

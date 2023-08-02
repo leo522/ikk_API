@@ -1,0 +1,1925 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SecurityReadWCFService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="WSHttpBinding_ISecurityReadWCFService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="https://intraap.server.kmuh.org.tw/WEB/SecurityRead.Services/SecurityReadWCFService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="https://intraap.server.kmuh.org.tw/WEB/SecurityRead.Services/SecurityReadWCFService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" />
+      <xsd:import schemaLocation="https://intraap.server.kmuh.org.tw/WEB/SecurityRead.Services/SecurityReadWCFService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://intraap.server.kmuh.org.tw/WEB/SecurityRead.Services/SecurityReadWCFService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" />
+      <xsd:import schemaLocation="https://intraap.server.kmuh.org.tw/WEB/SecurityRead.Services/SecurityReadWCFService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/AppFramework.ApplicationLayer.DTO" />
+      <xsd:import schemaLocation="https://intraap.server.kmuh.org.tw/WEB/SecurityRead.Services/SecurityReadWCFService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ISecurityReadWCFService_SecurityInitial_InputMessage">
+    <wsdl:part name="parameters" element="tns:SecurityInitial" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_SecurityInitial_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SecurityInitialResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_SecurityInitial_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q1:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetUserSystemTree_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserSystemTree" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetUserSystemTree_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserSystemTreeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetUserSystemTree_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q2:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetAppWinMenu_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAppWinMenu" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetAppWinMenu_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAppWinMenuResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetAppWinMenu_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q3:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetWinDataAuth_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetWinDataAuth" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetWinDataAuth_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetWinDataAuthResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetWinDataAuth_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q4:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetUserSystemRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserSystemRole" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetUserSystemRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserSystemRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetUserSystemRole_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q5:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_QueryUser_Identity_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueryUser_Identity" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_QueryUser_Identity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryUser_IdentityResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_QueryUser_Identity_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q6:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_QueryUserApp_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueryUserApp" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_QueryUserApp_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryUserAppResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_QueryUserApp_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q7:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_QueryKmusApps_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueryKmusApps" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_QueryKmusApps_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryKmusAppsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_QueryKmusApps_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q8:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_QueryKmusAppInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueryKmusAppInfo" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_QueryKmusAppInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryKmusAppInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_QueryKmusAppInfo_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q9:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_QueryKmusCategoryApp_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueryKmusCategoryApp" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_QueryKmusCategoryApp_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryKmusCategoryAppResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_QueryKmusCategoryApp_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q10="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q10:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_QueryKmusCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueryKmusCategory" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_QueryKmusCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryKmusCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_QueryKmusCategory_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q11="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q11:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_QueryKmusParentCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueryKmusParentCategory" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_QueryKmusParentCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryKmusParentCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_QueryKmusParentCategory_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q12="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q12:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_IsWinReadonly_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsWinReadonly" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_IsWinReadonly_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsWinReadonlyResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_IsWinReadonly_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q13="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q13:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_QueryUserWins_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueryUserWins" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_QueryUserWins_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryUserWinsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_QueryUserWins_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q14="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q14:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_QueryUserAppWins_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueryUserAppWins" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_QueryUserAppWins_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryUserAppWinsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_QueryUserAppWins_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q15="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q15:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_QueryKmusWins_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueryKmusWins" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_QueryKmusWins_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryKmusWinsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_QueryKmusWins_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q16="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q16:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_QueryUserWinNode_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueryUserWinNode" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_QueryUserWinNode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryUserWinNodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_QueryUserWinNode_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q17="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q17:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_QueryAppNode_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueryAppNode" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_QueryAppNode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryAppNodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_QueryAppNode_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q18="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q18:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_QueryWinDataAuth_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueryWinDataAuth" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_QueryWinDataAuth_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryWinDataAuthResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_QueryWinDataAuth_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q19="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q19:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_QueryDataAuth_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueryDataAuth" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_QueryDataAuth_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryDataAuthResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_QueryDataAuth_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q20="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q20:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetKmuEmp_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetKmuEmp" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetKmuEmp_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetKmuEmpResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetKmuEmp_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q21="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q21:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetDeptName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeptName" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetDeptName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeptNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetDeptName_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q22="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q22:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetJobName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetJobName" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetJobName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetJobNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetJobName_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q23="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q23:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetKmuChf_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetKmuChf" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetKmuChf_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetKmuChfResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetKmuChf_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q24="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q24:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetKMUGROUP_USERs_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetKMUGROUP_USERs" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetKMUGROUP_USERs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetKMUGROUP_USERsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetKMUGROUP_USERs_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q25="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q25:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetKMUGROUP_USERs_Contain_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetKMUGROUP_USERs_Contain" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetKMUGROUP_USERs_Contain_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetKMUGROUP_USERs_ContainResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetKMUGROUP_USERs_Contain_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q26="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q26:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_IsUserInGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsUserInGroup" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_IsUserInGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsUserInGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_IsUserInGroup_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q27="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q27:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetKMUSUSER_GROUPs_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetKMUSUSER_GROUPs" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetKMUSUSER_GROUPs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetKMUSUSER_GROUPsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetKMUSUSER_GROUPs_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q28="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q28:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetKMUSUER_GROUPs_Contain_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetKMUSUER_GROUPs_Contain" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetKMUSUER_GROUPs_Contain_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetKMUSUER_GROUPs_ContainResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetKMUSUER_GROUPs_Contain_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q29="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q29:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_QueryWinNodeList_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueryWinNodeList" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_QueryWinNodeList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryWinNodeListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_QueryWinNodeList_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q30="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q30:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_QueryParentNode_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueryParentNode" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_QueryParentNode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryParentNodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_QueryParentNode_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q31="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q31:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_QueryTreeAppNode_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueryTreeAppNode" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_QueryTreeAppNode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryTreeAppNodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_QueryTreeAppNode_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q32="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q32:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_QueryTreeCategroyApp_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueryTreeCategroyApp" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_QueryTreeCategroyApp_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryTreeCategroyAppResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_QueryTreeCategroyApp_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q33="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q33:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_QueryUserAppTree_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueryUserAppTree" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_QueryUserAppTree_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryUserAppTreeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_QueryUserAppTree_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q34="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q34:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_QueryUserAppNode_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueryUserAppNode" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_QueryUserAppNode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryUserAppNodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_QueryUserAppNode_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q35="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q35:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_ReadAllMenus_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReadAllMenus" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_ReadAllMenus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReadAllMenusResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_ReadAllMenus_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q36="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q36:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetAllMenus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllMenus" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetAllMenus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllMenusResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetAllMenus_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q37="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q37:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_ReadMenusByUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReadMenusByUser" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_ReadMenusByUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReadMenusByUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_ReadMenusByUser_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q38="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q38:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetMenusByUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMenusByUser" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetMenusByUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMenusByUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetMenusByUser_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q39="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q39:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_CreateFavoriteMenu_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateFavoriteMenu" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_CreateFavoriteMenu_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateFavoriteMenuResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_CreateFavoriteMenu_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q40="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q40:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_DeleteFavoriteMenu_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFavoriteMenu" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_DeleteFavoriteMenu_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFavoriteMenuResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_DeleteFavoriteMenu_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q41="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q41:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_CreateMenuLog_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateMenuLog" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_CreateMenuLog_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateMenuLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_CreateMenuLog_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q42="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q42:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_CreateStartupMenu_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateStartupMenu" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_CreateStartupMenu_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateStartupMenuResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_CreateStartupMenu_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q43="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q43:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetStartupMenu_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStartupMenu" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetStartupMenu_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStartupMenuResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetStartupMenu_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q44="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q44:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetPropertiesByMenu_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPropertiesByMenu" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetPropertiesByMenu_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPropertiesByMenuResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetPropertiesByMenu_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q45="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q45:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_ReadPropertiesByMenu_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReadPropertiesByMenu" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_ReadPropertiesByMenu_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReadPropertiesByMenuResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_ReadPropertiesByMenu_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q46="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q46:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetPropertiesByMenuAction_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPropertiesByMenuAction" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetPropertiesByMenuAction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPropertiesByMenuActionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetPropertiesByMenuAction_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q47="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q47:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_UpdateMenu_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMenu" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_UpdateMenu_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMenuResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_UpdateMenu_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q48="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q48:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_DeleteMenu_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMenu" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_DeleteMenu_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMenuResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_DeleteMenu_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q49="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q49:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_CreateMenu_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateMenu" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_CreateMenu_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateMenuResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_CreateMenu_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q50="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q50:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_ReadAllRolesByMenu_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReadAllRolesByMenu" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_ReadAllRolesByMenu_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReadAllRolesByMenuResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_ReadAllRolesByMenu_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q51="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q51:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetAllRolesForMenu_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRolesForMenu" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetAllRolesForMenu_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRolesForMenuResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetAllRolesForMenu_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q52="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q52:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_SavePropertiesByMenu_InputMessage">
+    <wsdl:part name="parameters" element="tns:SavePropertiesByMenu" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_SavePropertiesByMenu_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SavePropertiesByMenuResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_SavePropertiesByMenu_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q53="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q53:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GrantRolesToMenu_InputMessage">
+    <wsdl:part name="parameters" element="tns:GrantRolesToMenu" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GrantRolesToMenu_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GrantRolesToMenuResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GrantRolesToMenu_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q54="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q54:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_setDBName_InputMessage">
+    <wsdl:part name="parameters" element="tns:setDBName" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_setDBName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:setDBNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_setDBName_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q55="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q55:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetMenusByUserAndPlatform_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMenusByUserAndPlatform" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetMenusByUserAndPlatform_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMenusByUserAndPlatformResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetMenusByUserAndPlatform_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q56="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q56:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetAppByUserAndPlatform_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAppByUserAndPlatform" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetAppByUserAndPlatform_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAppByUserAndPlatformResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetAppByUserAndPlatform_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q57="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q57:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetRecentByUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRecentByUser" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetRecentByUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRecentByUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetRecentByUser_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q58="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q58:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_AddKmusLoginInfoLog_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddKmusLoginInfoLog" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_AddKmusLoginInfoLog_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddKmusLoginInfoLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_AddKmusLoginInfoLog_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q59="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q59:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetKMUSMISDto_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetKMUSMISDto" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetKMUSMISDto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetKMUSMISDtoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetKMUSMISDto_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q60="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q60:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetCategoryList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategoryList" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetCategoryList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategoryListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetCategoryList_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q61="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q61:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetFavouriteMenusID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFavouriteMenusID" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetFavouriteMenusID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFavouriteMenusIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetFavouriteMenusID_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q62="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q62:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetFavouriteMenusByUserAndPlatform_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFavouriteMenusByUserAndPlatform" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetFavouriteMenusByUserAndPlatform_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFavouriteMenusByUserAndPlatformResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetFavouriteMenusByUserAndPlatform_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q63="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q63:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_AddFavoriteMenu_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddFavoriteMenu" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_AddFavoriteMenu_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddFavoriteMenuResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_AddFavoriteMenu_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q64="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q64:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_RemoveFavoriteMenu_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveFavoriteMenu" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_RemoveFavoriteMenu_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveFavoriteMenuResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_RemoveFavoriteMenu_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q65="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q65:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_CheckTempInquiry_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckTempInquiry" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_CheckTempInquiry_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckTempInquiryResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_CheckTempInquiry_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q66="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q66:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_CheckTempForceInput_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckTempForceInput" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_CheckTempForceInput_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckTempForceInputResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_CheckTempForceInput_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q67="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q67:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetKMUSMIDto_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetKMUSMIDto" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetKMUSMIDto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetKMUSMIDtoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetKMUSMIDto_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q68="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q68:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetTreeNodeType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTreeNodeType" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetTreeNodeType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTreeNodeTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_GetTreeNodeType_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q69="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q69:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_CheckPermissionsByUrl_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckPermissionsByUrl" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_CheckPermissionsByUrl_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckPermissionsByUrlResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_CheckPermissionsByUrl_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q70="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q70:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_CheckPermissions_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckPermissions" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_CheckPermissions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckPermissionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_CheckPermissions_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q71="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q71:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_InitConnectionString_InputMessage">
+    <wsdl:part name="parameters" element="tns:InitConnectionString" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_InitConnectionString_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InitConnectionStringResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecurityReadWCFService_InitConnectionString_ApplicationServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q72="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.Services.ErrorHandlers" name="detail" element="q72:ApplicationServiceError" />
+  </wsdl:message>
+  <wsdl:portType name="ISecurityReadWCFService">
+    <wsdl:operation name="SecurityInitial">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/SecurityInitial" message="tns:ISecurityReadWCFService_SecurityInitial_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/SecurityInitialResponse" message="tns:ISecurityReadWCFService_SecurityInitial_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/SecurityInitialApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_SecurityInitial_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserSystemTree">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetUserSystemTree" message="tns:ISecurityReadWCFService_GetUserSystemTree_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetUserSystemTreeResponse" message="tns:ISecurityReadWCFService_GetUserSystemTree_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetUserSystemTreeApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_GetUserSystemTree_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAppWinMenu">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetAppWinMenu" message="tns:ISecurityReadWCFService_GetAppWinMenu_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetAppWinMenuResponse" message="tns:ISecurityReadWCFService_GetAppWinMenu_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetAppWinMenuApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_GetAppWinMenu_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWinDataAuth">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetWinDataAuth" message="tns:ISecurityReadWCFService_GetWinDataAuth_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetWinDataAuthResponse" message="tns:ISecurityReadWCFService_GetWinDataAuth_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetWinDataAuthApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_GetWinDataAuth_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserSystemRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetUserSystemRole" message="tns:ISecurityReadWCFService_GetUserSystemRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetUserSystemRoleResponse" message="tns:ISecurityReadWCFService_GetUserSystemRole_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetUserSystemRoleApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_GetUserSystemRole_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryUser_Identity">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/QueryUser_Identity" message="tns:ISecurityReadWCFService_QueryUser_Identity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/QueryUser_IdentityResponse" message="tns:ISecurityReadWCFService_QueryUser_Identity_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/QueryUser_IdentityApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_QueryUser_Identity_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryUserApp">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/QueryUserApp" message="tns:ISecurityReadWCFService_QueryUserApp_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/QueryUserAppResponse" message="tns:ISecurityReadWCFService_QueryUserApp_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/QueryUserAppApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_QueryUserApp_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryKmusApps">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/QueryKmusApps" message="tns:ISecurityReadWCFService_QueryKmusApps_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/QueryKmusAppsResponse" message="tns:ISecurityReadWCFService_QueryKmusApps_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/QueryKmusAppsApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_QueryKmusApps_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryKmusAppInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/QueryKmusAppInfo" message="tns:ISecurityReadWCFService_QueryKmusAppInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/QueryKmusAppInfoResponse" message="tns:ISecurityReadWCFService_QueryKmusAppInfo_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/QueryKmusAppInfoApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_QueryKmusAppInfo_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryKmusCategoryApp">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/QueryKmusCategoryApp" message="tns:ISecurityReadWCFService_QueryKmusCategoryApp_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/QueryKmusCategoryAppResponse" message="tns:ISecurityReadWCFService_QueryKmusCategoryApp_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/QueryKmusCategoryAppApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_QueryKmusCategoryApp_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryKmusCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/QueryKmusCategory" message="tns:ISecurityReadWCFService_QueryKmusCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/QueryKmusCategoryResponse" message="tns:ISecurityReadWCFService_QueryKmusCategory_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/QueryKmusCategoryApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_QueryKmusCategory_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryKmusParentCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/QueryKmusParentCategory" message="tns:ISecurityReadWCFService_QueryKmusParentCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/QueryKmusParentCategoryResponse" message="tns:ISecurityReadWCFService_QueryKmusParentCategory_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/QueryKmusParentCategoryApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_QueryKmusParentCategory_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsWinReadonly">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/IsWinReadonly" message="tns:ISecurityReadWCFService_IsWinReadonly_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/IsWinReadonlyResponse" message="tns:ISecurityReadWCFService_IsWinReadonly_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/IsWinReadonlyApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_IsWinReadonly_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryUserWins">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/QueryUserWins" message="tns:ISecurityReadWCFService_QueryUserWins_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/QueryUserWinsResponse" message="tns:ISecurityReadWCFService_QueryUserWins_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/QueryUserWinsApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_QueryUserWins_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryUserAppWins">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/QueryUserAppWins" message="tns:ISecurityReadWCFService_QueryUserAppWins_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/QueryUserAppWinsResponse" message="tns:ISecurityReadWCFService_QueryUserAppWins_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/QueryUserAppWinsApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_QueryUserAppWins_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryKmusWins">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/QueryKmusWins" message="tns:ISecurityReadWCFService_QueryKmusWins_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/QueryKmusWinsResponse" message="tns:ISecurityReadWCFService_QueryKmusWins_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/QueryKmusWinsApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_QueryKmusWins_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryUserWinNode">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/QueryUserWinNode" message="tns:ISecurityReadWCFService_QueryUserWinNode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/QueryUserWinNodeResponse" message="tns:ISecurityReadWCFService_QueryUserWinNode_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/QueryUserWinNodeApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_QueryUserWinNode_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryAppNode">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/QueryAppNode" message="tns:ISecurityReadWCFService_QueryAppNode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/QueryAppNodeResponse" message="tns:ISecurityReadWCFService_QueryAppNode_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/QueryAppNodeApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_QueryAppNode_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryWinDataAuth">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/QueryWinDataAuth" message="tns:ISecurityReadWCFService_QueryWinDataAuth_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/QueryWinDataAuthResponse" message="tns:ISecurityReadWCFService_QueryWinDataAuth_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/QueryWinDataAuthApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_QueryWinDataAuth_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryDataAuth">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/QueryDataAuth" message="tns:ISecurityReadWCFService_QueryDataAuth_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/QueryDataAuthResponse" message="tns:ISecurityReadWCFService_QueryDataAuth_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/QueryDataAuthApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_QueryDataAuth_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetKmuEmp">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetKmuEmp" message="tns:ISecurityReadWCFService_GetKmuEmp_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetKmuEmpResponse" message="tns:ISecurityReadWCFService_GetKmuEmp_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetKmuEmpApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_GetKmuEmp_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDeptName">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetDeptName" message="tns:ISecurityReadWCFService_GetDeptName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetDeptNameResponse" message="tns:ISecurityReadWCFService_GetDeptName_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetDeptNameApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_GetDeptName_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJobName">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetJobName" message="tns:ISecurityReadWCFService_GetJobName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetJobNameResponse" message="tns:ISecurityReadWCFService_GetJobName_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetJobNameApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_GetJobName_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetKmuChf">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetKmuChf" message="tns:ISecurityReadWCFService_GetKmuChf_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetKmuChfResponse" message="tns:ISecurityReadWCFService_GetKmuChf_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetKmuChfApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_GetKmuChf_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetKMUGROUP_USERs">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetKMUGROUP_USERs" message="tns:ISecurityReadWCFService_GetKMUGROUP_USERs_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetKMUGROUP_USERsResponse" message="tns:ISecurityReadWCFService_GetKMUGROUP_USERs_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetKMUGROUP_USERsApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_GetKMUGROUP_USERs_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetKMUGROUP_USERs_Contain">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetKMUGROUP_USERs_Contain" message="tns:ISecurityReadWCFService_GetKMUGROUP_USERs_Contain_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetKMUGROUP_USERs_ContainResponse" message="tns:ISecurityReadWCFService_GetKMUGROUP_USERs_Contain_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetKMUGROUP_USERs_ContainApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_GetKMUGROUP_USERs_Contain_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsUserInGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/IsUserInGroup" message="tns:ISecurityReadWCFService_IsUserInGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/IsUserInGroupResponse" message="tns:ISecurityReadWCFService_IsUserInGroup_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/IsUserInGroupApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_IsUserInGroup_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetKMUSUSER_GROUPs">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetKMUSUSER_GROUPs" message="tns:ISecurityReadWCFService_GetKMUSUSER_GROUPs_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetKMUSUSER_GROUPsResponse" message="tns:ISecurityReadWCFService_GetKMUSUSER_GROUPs_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetKMUSUSER_GROUPsApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_GetKMUSUSER_GROUPs_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetKMUSUER_GROUPs_Contain">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetKMUSUER_GROUPs_Contain" message="tns:ISecurityReadWCFService_GetKMUSUER_GROUPs_Contain_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetKMUSUER_GROUPs_ContainResponse" message="tns:ISecurityReadWCFService_GetKMUSUER_GROUPs_Contain_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetKMUSUER_GROUPs_ContainApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_GetKMUSUER_GROUPs_Contain_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryWinNodeList">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/QueryWinNodeList" message="tns:ISecurityReadWCFService_QueryWinNodeList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/QueryWinNodeListResponse" message="tns:ISecurityReadWCFService_QueryWinNodeList_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/QueryWinNodeListApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_QueryWinNodeList_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryParentNode">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/QueryParentNode" message="tns:ISecurityReadWCFService_QueryParentNode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/QueryParentNodeResponse" message="tns:ISecurityReadWCFService_QueryParentNode_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/QueryParentNodeApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_QueryParentNode_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryTreeAppNode">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/QueryTreeAppNode" message="tns:ISecurityReadWCFService_QueryTreeAppNode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/QueryTreeAppNodeResponse" message="tns:ISecurityReadWCFService_QueryTreeAppNode_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/QueryTreeAppNodeApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_QueryTreeAppNode_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryTreeCategroyApp">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/QueryTreeCategroyApp" message="tns:ISecurityReadWCFService_QueryTreeCategroyApp_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/QueryTreeCategroyAppResponse" message="tns:ISecurityReadWCFService_QueryTreeCategroyApp_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/QueryTreeCategroyAppApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_QueryTreeCategroyApp_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryUserAppTree">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/QueryUserAppTree" message="tns:ISecurityReadWCFService_QueryUserAppTree_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/QueryUserAppTreeResponse" message="tns:ISecurityReadWCFService_QueryUserAppTree_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/QueryUserAppTreeApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_QueryUserAppTree_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryUserAppNode">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/QueryUserAppNode" message="tns:ISecurityReadWCFService_QueryUserAppNode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/QueryUserAppNodeResponse" message="tns:ISecurityReadWCFService_QueryUserAppNode_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/QueryUserAppNodeApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_QueryUserAppNode_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReadAllMenus">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/ReadAllMenus" message="tns:ISecurityReadWCFService_ReadAllMenus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/ReadAllMenusResponse" message="tns:ISecurityReadWCFService_ReadAllMenus_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/ReadAllMenusApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_ReadAllMenus_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllMenus">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetAllMenus" message="tns:ISecurityReadWCFService_GetAllMenus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetAllMenusResponse" message="tns:ISecurityReadWCFService_GetAllMenus_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetAllMenusApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_GetAllMenus_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReadMenusByUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/ReadMenusByUser" message="tns:ISecurityReadWCFService_ReadMenusByUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/ReadMenusByUserResponse" message="tns:ISecurityReadWCFService_ReadMenusByUser_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/ReadMenusByUserApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_ReadMenusByUser_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMenusByUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetMenusByUser" message="tns:ISecurityReadWCFService_GetMenusByUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetMenusByUserResponse" message="tns:ISecurityReadWCFService_GetMenusByUser_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetMenusByUserApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_GetMenusByUser_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateFavoriteMenu">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/CreateFavoriteMenu" message="tns:ISecurityReadWCFService_CreateFavoriteMenu_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/CreateFavoriteMenuResponse" message="tns:ISecurityReadWCFService_CreateFavoriteMenu_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/CreateFavoriteMenuApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_CreateFavoriteMenu_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFavoriteMenu">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/DeleteFavoriteMenu" message="tns:ISecurityReadWCFService_DeleteFavoriteMenu_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/DeleteFavoriteMenuResponse" message="tns:ISecurityReadWCFService_DeleteFavoriteMenu_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/DeleteFavoriteMenuApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_DeleteFavoriteMenu_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateMenuLog">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/CreateMenuLog" message="tns:ISecurityReadWCFService_CreateMenuLog_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/CreateMenuLogResponse" message="tns:ISecurityReadWCFService_CreateMenuLog_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/CreateMenuLogApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_CreateMenuLog_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateStartupMenu">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/CreateStartupMenu" message="tns:ISecurityReadWCFService_CreateStartupMenu_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/CreateStartupMenuResponse" message="tns:ISecurityReadWCFService_CreateStartupMenu_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/CreateStartupMenuApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_CreateStartupMenu_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStartupMenu">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetStartupMenu" message="tns:ISecurityReadWCFService_GetStartupMenu_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetStartupMenuResponse" message="tns:ISecurityReadWCFService_GetStartupMenu_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetStartupMenuApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_GetStartupMenu_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertiesByMenu">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetPropertiesByMenu" message="tns:ISecurityReadWCFService_GetPropertiesByMenu_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetPropertiesByMenuResponse" message="tns:ISecurityReadWCFService_GetPropertiesByMenu_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetPropertiesByMenuApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_GetPropertiesByMenu_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReadPropertiesByMenu">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/ReadPropertiesByMenu" message="tns:ISecurityReadWCFService_ReadPropertiesByMenu_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/ReadPropertiesByMenuResponse" message="tns:ISecurityReadWCFService_ReadPropertiesByMenu_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/ReadPropertiesByMenuApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_ReadPropertiesByMenu_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertiesByMenuAction">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetPropertiesByMenuAction" message="tns:ISecurityReadWCFService_GetPropertiesByMenuAction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetPropertiesByMenuActionResponse" message="tns:ISecurityReadWCFService_GetPropertiesByMenuAction_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetPropertiesByMenuActionApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_GetPropertiesByMenuAction_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMenu">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/UpdateMenu" message="tns:ISecurityReadWCFService_UpdateMenu_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/UpdateMenuResponse" message="tns:ISecurityReadWCFService_UpdateMenu_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/UpdateMenuApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_UpdateMenu_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMenu">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/DeleteMenu" message="tns:ISecurityReadWCFService_DeleteMenu_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/DeleteMenuResponse" message="tns:ISecurityReadWCFService_DeleteMenu_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/DeleteMenuApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_DeleteMenu_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateMenu">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/CreateMenu" message="tns:ISecurityReadWCFService_CreateMenu_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/CreateMenuResponse" message="tns:ISecurityReadWCFService_CreateMenu_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/CreateMenuApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_CreateMenu_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReadAllRolesByMenu">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/ReadAllRolesByMenu" message="tns:ISecurityReadWCFService_ReadAllRolesByMenu_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/ReadAllRolesByMenuResponse" message="tns:ISecurityReadWCFService_ReadAllRolesByMenu_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/ReadAllRolesByMenuApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_ReadAllRolesByMenu_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRolesForMenu">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetAllRolesForMenu" message="tns:ISecurityReadWCFService_GetAllRolesForMenu_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetAllRolesForMenuResponse" message="tns:ISecurityReadWCFService_GetAllRolesForMenu_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetAllRolesForMenuApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_GetAllRolesForMenu_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SavePropertiesByMenu">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/SavePropertiesByMenu" message="tns:ISecurityReadWCFService_SavePropertiesByMenu_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/SavePropertiesByMenuResponse" message="tns:ISecurityReadWCFService_SavePropertiesByMenu_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/SavePropertiesByMenuApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_SavePropertiesByMenu_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GrantRolesToMenu">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GrantRolesToMenu" message="tns:ISecurityReadWCFService_GrantRolesToMenu_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GrantRolesToMenuResponse" message="tns:ISecurityReadWCFService_GrantRolesToMenu_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GrantRolesToMenuApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_GrantRolesToMenu_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="setDBName">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/setDBName" message="tns:ISecurityReadWCFService_setDBName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/setDBNameResponse" message="tns:ISecurityReadWCFService_setDBName_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/setDBNameApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_setDBName_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMenusByUserAndPlatform">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetMenusByUserAndPlatform" message="tns:ISecurityReadWCFService_GetMenusByUserAndPlatform_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetMenusByUserAndPlatformResponse" message="tns:ISecurityReadWCFService_GetMenusByUserAndPlatform_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetMenusByUserAndPlatformApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_GetMenusByUserAndPlatform_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAppByUserAndPlatform">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetAppByUserAndPlatform" message="tns:ISecurityReadWCFService_GetAppByUserAndPlatform_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetAppByUserAndPlatformResponse" message="tns:ISecurityReadWCFService_GetAppByUserAndPlatform_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetAppByUserAndPlatformApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_GetAppByUserAndPlatform_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRecentByUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetRecentByUser" message="tns:ISecurityReadWCFService_GetRecentByUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetRecentByUserResponse" message="tns:ISecurityReadWCFService_GetRecentByUser_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetRecentByUserApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_GetRecentByUser_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddKmusLoginInfoLog">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/AddKmusLoginInfoLog" message="tns:ISecurityReadWCFService_AddKmusLoginInfoLog_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/AddKmusLoginInfoLogResponse" message="tns:ISecurityReadWCFService_AddKmusLoginInfoLog_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/AddKmusLoginInfoLogApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_AddKmusLoginInfoLog_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetKMUSMISDto">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetKMUSMISDto" message="tns:ISecurityReadWCFService_GetKMUSMISDto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetKMUSMISDtoResponse" message="tns:ISecurityReadWCFService_GetKMUSMISDto_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetKMUSMISDtoApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_GetKMUSMISDto_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCategoryList">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetCategoryList" message="tns:ISecurityReadWCFService_GetCategoryList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetCategoryListResponse" message="tns:ISecurityReadWCFService_GetCategoryList_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetCategoryListApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_GetCategoryList_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFavouriteMenusID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetFavouriteMenusID" message="tns:ISecurityReadWCFService_GetFavouriteMenusID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetFavouriteMenusIDResponse" message="tns:ISecurityReadWCFService_GetFavouriteMenusID_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetFavouriteMenusIDApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_GetFavouriteMenusID_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFavouriteMenusByUserAndPlatform">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetFavouriteMenusByUserAndPlatform" message="tns:ISecurityReadWCFService_GetFavouriteMenusByUserAndPlatform_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetFavouriteMenusByUserAndPlatformResponse" message="tns:ISecurityReadWCFService_GetFavouriteMenusByUserAndPlatform_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetFavouriteMenusByUserAndPlatformApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_GetFavouriteMenusByUserAndPlatform_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddFavoriteMenu">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/AddFavoriteMenu" message="tns:ISecurityReadWCFService_AddFavoriteMenu_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/AddFavoriteMenuResponse" message="tns:ISecurityReadWCFService_AddFavoriteMenu_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/AddFavoriteMenuApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_AddFavoriteMenu_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveFavoriteMenu">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/RemoveFavoriteMenu" message="tns:ISecurityReadWCFService_RemoveFavoriteMenu_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/RemoveFavoriteMenuResponse" message="tns:ISecurityReadWCFService_RemoveFavoriteMenu_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/RemoveFavoriteMenuApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_RemoveFavoriteMenu_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckTempInquiry">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/CheckTempInquiry" message="tns:ISecurityReadWCFService_CheckTempInquiry_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/CheckTempInquiryResponse" message="tns:ISecurityReadWCFService_CheckTempInquiry_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/CheckTempInquiryApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_CheckTempInquiry_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckTempForceInput">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/CheckTempForceInput" message="tns:ISecurityReadWCFService_CheckTempForceInput_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/CheckTempForceInputResponse" message="tns:ISecurityReadWCFService_CheckTempForceInput_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/CheckTempForceInputApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_CheckTempForceInput_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetKMUSMIDto">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetKMUSMIDto" message="tns:ISecurityReadWCFService_GetKMUSMIDto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetKMUSMIDtoResponse" message="tns:ISecurityReadWCFService_GetKMUSMIDto_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetKMUSMIDtoApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_GetKMUSMIDto_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTreeNodeType">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetTreeNodeType" message="tns:ISecurityReadWCFService_GetTreeNodeType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetTreeNodeTypeResponse" message="tns:ISecurityReadWCFService_GetTreeNodeType_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/GetTreeNodeTypeApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_GetTreeNodeType_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckPermissionsByUrl">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/CheckPermissionsByUrl" message="tns:ISecurityReadWCFService_CheckPermissionsByUrl_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/CheckPermissionsByUrlResponse" message="tns:ISecurityReadWCFService_CheckPermissionsByUrl_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/CheckPermissionsByUrlApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_CheckPermissionsByUrl_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckPermissions">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/CheckPermissions" message="tns:ISecurityReadWCFService_CheckPermissions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/CheckPermissionsResponse" message="tns:ISecurityReadWCFService_CheckPermissions_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/CheckPermissionsApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_CheckPermissions_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InitConnectionString">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecurityReadWCFService/InitConnectionString" message="tns:ISecurityReadWCFService_InitConnectionString_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecurityReadWCFService/InitConnectionStringResponse" message="tns:ISecurityReadWCFService_InitConnectionString_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISecurityReadWCFService/InitConnectionStringApplicationServiceErrorFault" name="ApplicationServiceErrorFault" message="tns:ISecurityReadWCFService_InitConnectionString_ApplicationServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSHttpBinding_ISecurityReadWCFService" type="tns:ISecurityReadWCFService">
+    <wsp:PolicyReference URI="#WSHttpBinding_ISecurityReadWCFService_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SecurityInitial">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/SecurityInitial" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserSystemTree">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/GetUserSystemTree" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAppWinMenu">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/GetAppWinMenu" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetWinDataAuth">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/GetWinDataAuth" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserSystemRole">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/GetUserSystemRole" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="QueryUser_Identity">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/QueryUser_Identity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="QueryUserApp">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/QueryUserApp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="QueryKmusApps">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/QueryKmusApps" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="QueryKmusAppInfo">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/QueryKmusAppInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="QueryKmusCategoryApp">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/QueryKmusCategoryApp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="QueryKmusCategory">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/QueryKmusCategory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="QueryKmusParentCategory">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/QueryKmusParentCategory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="IsWinReadonly">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/IsWinReadonly" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="QueryUserWins">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/QueryUserWins" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="QueryUserAppWins">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/QueryUserAppWins" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="QueryKmusWins">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/QueryKmusWins" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="QueryUserWinNode">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/QueryUserWinNode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="QueryAppNode">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/QueryAppNode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="QueryWinDataAuth">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/QueryWinDataAuth" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="QueryDataAuth">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/QueryDataAuth" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetKmuEmp">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/GetKmuEmp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeptName">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/GetDeptName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetJobName">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/GetJobName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetKmuChf">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/GetKmuChf" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetKMUGROUP_USERs">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/GetKMUGROUP_USERs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetKMUGROUP_USERs_Contain">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/GetKMUGROUP_USERs_Contain" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="IsUserInGroup">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/IsUserInGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetKMUSUSER_GROUPs">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/GetKMUSUSER_GROUPs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetKMUSUER_GROUPs_Contain">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/GetKMUSUER_GROUPs_Contain" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="QueryWinNodeList">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/QueryWinNodeList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="QueryParentNode">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/QueryParentNode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="QueryTreeAppNode">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/QueryTreeAppNode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="QueryTreeCategroyApp">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/QueryTreeCategroyApp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="QueryUserAppTree">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/QueryUserAppTree" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="QueryUserAppNode">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/QueryUserAppNode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ReadAllMenus">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/ReadAllMenus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllMenus">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/GetAllMenus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ReadMenusByUser">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/ReadMenusByUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetMenusByUser">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/GetMenusByUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CreateFavoriteMenu">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/CreateFavoriteMenu" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFavoriteMenu">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/DeleteFavoriteMenu" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CreateMenuLog">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/CreateMenuLog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CreateStartupMenu">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/CreateStartupMenu" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetStartupMenu">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/GetStartupMenu" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertiesByMenu">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/GetPropertiesByMenu" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ReadPropertiesByMenu">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/ReadPropertiesByMenu" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertiesByMenuAction">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/GetPropertiesByMenuAction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMenu">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/UpdateMenu" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMenu">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/DeleteMenu" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CreateMenu">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/CreateMenu" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ReadAllRolesByMenu">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/ReadAllRolesByMenu" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRolesForMenu">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/GetAllRolesForMenu" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SavePropertiesByMenu">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/SavePropertiesByMenu" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GrantRolesToMenu">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/GrantRolesToMenu" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="setDBName">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/setDBName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetMenusByUserAndPlatform">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/GetMenusByUserAndPlatform" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAppByUserAndPlatform">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/GetAppByUserAndPlatform" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetRecentByUser">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/GetRecentByUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddKmusLoginInfoLog">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/AddKmusLoginInfoLog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetKMUSMISDto">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/GetKMUSMISDto" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCategoryList">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/GetCategoryList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetFavouriteMenusID">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/GetFavouriteMenusID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetFavouriteMenusByUserAndPlatform">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/GetFavouriteMenusByUserAndPlatform" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddFavoriteMenu">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/AddFavoriteMenu" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveFavoriteMenu">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/RemoveFavoriteMenu" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CheckTempInquiry">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/CheckTempInquiry" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CheckTempForceInput">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/CheckTempForceInput" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetKMUSMIDto">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/GetKMUSMIDto" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetTreeNodeType">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/GetTreeNodeType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CheckPermissionsByUrl">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/CheckPermissionsByUrl" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CheckPermissions">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/CheckPermissions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="InitConnectionString">
+      <soap12:operation soapAction="http://tempuri.org/ISecurityReadWCFService/InitConnectionString" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationServiceErrorFault">
+        <soap12:fault use="literal" name="ApplicationServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SecurityReadWCFService">
+    <wsdl:port name="WSHttpBinding_ISecurityReadWCFService" binding="tns:WSHttpBinding_ISecurityReadWCFService">
+      <soap12:address location="https://intraap.server.kmuh.org.tw/WEB/SecurityRead.Services/SecurityReadWCFService.svc" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>https://intraap.server.kmuh.org.tw/WEB/SecurityRead.Services/SecurityReadWCFService.svc</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,1 @@
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="KMUH.iKASAWebApi.UI.MVC.MvcApplication" Language="C#" %>

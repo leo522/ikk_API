@@ -1,0 +1,934 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/KMUH.SecurityRead.ApplicationLayer.DTO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://intraap.server.kmuh.org.tw/WEB/SecurityRead.Services/SecurityReadWCFService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="https://intraap.server.kmuh.org.tw/WEB/SecurityRead.Services/SecurityReadWCFService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/AppFramework.ApplicationLayer.DTO" />
+  <xs:complexType name="ArrayOfTreeSysCategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TreeSysCategory" nillable="true" type="tns:TreeSysCategory" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTreeSysCategory" nillable="true" type="tns:ArrayOfTreeSysCategory" />
+  <xs:complexType name="TreeSysCategory">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:KMUSCATEGORYDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AppNode" nillable="true" type="tns:ArrayOfTreeApps" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TreeSysCategory" nillable="true" type="tns:TreeSysCategory" />
+  <xs:complexType name="KMUSCATEGORYDto">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/AppFramework.ApplicationLayer.DTO" base="q1:BaseDTOEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ACTIVE" nillable="true" type="ser:char" />
+          <xs:element minOccurs="0" name="CATEGORYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CATEGORYNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CATEGORY_LEVEL" nillable="true" type="xs:short" />
+          <xs:element minOccurs="0" name="DtoKey" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="KMUSAPPs" nillable="true" type="tns:ArrayOfKMUSAPPDto" />
+          <xs:element minOccurs="0" name="KMUSCATEGORY_APPs" nillable="true" type="tns:ArrayOfKMUSCATEGORY_APPDto" />
+          <xs:element minOccurs="0" name="MODIFYDATE" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="MODIFYUID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PARENT_CATEGORYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SEQ" nillable="true" type="xs:short" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="KMUSCATEGORYDto" nillable="true" type="tns:KMUSCATEGORYDto" />
+  <xs:complexType name="ArrayOfKMUSAPPDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KMUSAPPDto" nillable="true" type="tns:KMUSAPPDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKMUSAPPDto" nillable="true" type="tns:ArrayOfKMUSAPPDto" />
+  <xs:complexType name="KMUSAPPDto">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/AppFramework.ApplicationLayer.DTO" base="q2:BaseDTOEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ACTIVE" nillable="true" type="ser:char" />
+          <xs:element minOccurs="0" name="APPLICATION" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CATEGORYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="COMPLEXITY" nillable="true" type="xs:short" />
+          <xs:element minOccurs="0" name="CRASH_TOLERANCE" nillable="true" type="xs:short" />
+          <xs:element minOccurs="0" name="CREATE_DATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DESCRIPTION" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DIGICERT_CHECK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DtoKey" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="KMUSAPPUPDATE" nillable="true" type="tns:KMUSAPPUPDATEDto" />
+          <xs:element minOccurs="0" name="KMUSAPPUSERs" nillable="true" type="tns:ArrayOfKMUSAPPUSERDto" />
+          <xs:element minOccurs="0" name="KMUSCATEGORY" nillable="true" type="tns:KMUSCATEGORYDto" />
+          <xs:element minOccurs="0" name="KMUSCATEGORY_APPs" nillable="true" type="tns:ArrayOfKMUSCATEGORY_APPDto" />
+          <xs:element minOccurs="0" name="KMUSMIs" nillable="true" type="tns:ArrayOfKMUSMIDto" />
+          <xs:element minOccurs="0" name="KMUSNODEs" nillable="true" type="tns:ArrayOfKMUSNODEDto" />
+          <xs:element minOccurs="0" name="KMUSPOWER_DEPTs" nillable="true" type="tns:ArrayOfKMUSPOWER_DEPTDto" />
+          <xs:element minOccurs="0" name="KMUSPOWER_USER_GROUPs" nillable="true" type="tns:ArrayOfKMUSPOWER_USER_GROUPDto" />
+          <xs:element minOccurs="0" name="KMUSPOWER_USERs" nillable="true" type="tns:ArrayOfKMUSPOWER_USERDto" />
+          <xs:element minOccurs="0" name="KMUSWINs" nillable="true" type="tns:ArrayOfKMUSWINDto" />
+          <xs:element minOccurs="0" name="KMUSWINs1" nillable="true" type="tns:ArrayOfKMUSWINDto" />
+          <xs:element minOccurs="0" name="LANGUAGE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LEADER_REASON" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LEADER_SCORE" nillable="true" type="xs:short" />
+          <xs:element minOccurs="0" name="LEFTFRAME" nillable="true" type="ser:char" />
+          <xs:element minOccurs="0" name="MODIFYDATE" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="MODIFYUID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OTHERPARM" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PASSWORDLEVEL" nillable="true" type="xs:short" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REPORT_TITLE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ROTATE_DATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="SEND_TOKEN" nillable="true" type="ser:char" />
+          <xs:element minOccurs="0" name="SEQ" nillable="true" type="xs:short" />
+          <xs:element minOccurs="0" name="SERVICE_RANGE" nillable="true" type="xs:short" />
+          <xs:element minOccurs="0" name="TOPFRAME" nillable="true" type="ser:char" />
+          <xs:element minOccurs="0" name="URL" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="WWWDISABLED" nillable="true" type="ser:char" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="KMUSAPPDto" nillable="true" type="tns:KMUSAPPDto" />
+  <xs:complexType name="KMUSAPPUPDATEDto">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/AppFramework.ApplicationLayer.DTO" base="q3:BaseDTOEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="APPLICATION" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DtoKey" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="KMUSAPP" nillable="true" type="tns:KMUSAPPDto" />
+          <xs:element minOccurs="0" name="UPDATEENABLED" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEMANIFEST" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="KMUSAPPUPDATEDto" nillable="true" type="tns:KMUSAPPUPDATEDto" />
+  <xs:complexType name="ArrayOfKMUSAPPUSERDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KMUSAPPUSERDto" nillable="true" type="tns:KMUSAPPUSERDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKMUSAPPUSERDto" nillable="true" type="tns:ArrayOfKMUSAPPUSERDto" />
+  <xs:complexType name="KMUSAPPUSERDto">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/AppFramework.ApplicationLayer.DTO" base="q4:BaseDTOEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="APPLICATION" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DBCOL_CONTROL" nillable="true" type="ser:char" />
+          <xs:element minOccurs="0" name="DtoKey" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EMP_ID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="KMUSAPP" nillable="true" type="tns:KMUSAPPDto" />
+          <xs:element minOccurs="0" name="KMUSLOGININFOs" nillable="true" type="tns:ArrayOfKMUSLOGININFODto" />
+          <xs:element minOccurs="0" name="KMUSUSER" nillable="true" type="tns:KMUSUSERDto" />
+          <xs:element minOccurs="0" name="OTHERPARM" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RUNTIME_SETUP" nillable="true" type="ser:char" />
+          <xs:element minOccurs="0" name="STATUS" nillable="true" type="ser:char" />
+          <xs:element minOccurs="0" name="USER_NAME" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="KMUSAPPUSERDto" nillable="true" type="tns:KMUSAPPUSERDto" />
+  <xs:complexType name="ArrayOfKMUSLOGININFODto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KMUSLOGININFODto" nillable="true" type="tns:KMUSLOGININFODto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKMUSLOGININFODto" nillable="true" type="tns:ArrayOfKMUSLOGININFODto" />
+  <xs:complexType name="KMUSLOGININFODto">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/AppFramework.ApplicationLayer.DTO" base="q5:BaseDTOEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="APPLICATION" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="COMPUTERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DEAUTHORIZED" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DESCRIPTION" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DtoKey" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="KMUSAPPUSER" nillable="true" type="tns:KMUSAPPUSERDto" />
+          <xs:element minOccurs="0" name="LOGIN_DTIME" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="LOGIN_STATUS" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LOGOUT_DTIME" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="OTHERPARM" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SECURITYLOGININFOID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="USER_NAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="WINDOW" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="KMUSLOGININFODto" nillable="true" type="tns:KMUSLOGININFODto" />
+  <xs:complexType name="KMUSUSERDto">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q6="http://schemas.datacontract.org/2004/07/AppFramework.ApplicationLayer.DTO" base="q6:BaseDTOEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DESCRIPT" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DtoKey" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EMP_ID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="KMUSAPPUSERs" nillable="true" type="tns:ArrayOfKMUSAPPUSERDto" />
+          <xs:element minOccurs="0" name="KMUSDATAUTUs" nillable="true" type="tns:ArrayOfKMUSDATAUTUDto" />
+          <xs:element minOccurs="0" name="KMUSGROUSERs" nillable="true" type="tns:ArrayOfKMUSGROUSERDto" />
+          <xs:element minOccurs="0" name="KMUSGROUSERs1" nillable="true" type="tns:ArrayOfKMUSGROUSERDto" />
+          <xs:element minOccurs="0" name="KMUSPOWER_USER_GROUPs" nillable="true" type="tns:ArrayOfKMUSPOWER_USER_GROUPDto" />
+          <xs:element minOccurs="0" name="KMUSUSERWINs" nillable="true" type="tns:ArrayOfKMUSUSERWINDto" />
+          <xs:element minOccurs="0" name="KMUSWIN_POWER_USER_GROUPs" nillable="true" type="tns:ArrayOfKMUSWIN_POWER_USER_GROUPDto" />
+          <xs:element minOccurs="0" name="NAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PRIORITY" nillable="true" type="xs:short" />
+          <xs:element minOccurs="0" name="USER_TYPE" type="xs:short" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="KMUSUSERDto" nillable="true" type="tns:KMUSUSERDto" />
+  <xs:complexType name="ArrayOfKMUSDATAUTUDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KMUSDATAUTUDto" nillable="true" type="tns:KMUSDATAUTUDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKMUSDATAUTUDto" nillable="true" type="tns:ArrayOfKMUSDATAUTUDto" />
+  <xs:complexType name="KMUSDATAUTUDto">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q7="http://schemas.datacontract.org/2004/07/AppFramework.ApplicationLayer.DTO" base="q7:BaseDTOEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="APPLICATION" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DATAAUTHID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DtoKey" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="KMUSDATAUT" nillable="true" type="tns:KMUSDATAUTDto" />
+          <xs:element minOccurs="0" name="KMUSUSER" nillable="true" type="tns:KMUSUSERDto" />
+          <xs:element minOccurs="0" name="KMUSWIN" nillable="true" type="tns:KMUSWINDto" />
+          <xs:element minOccurs="0" name="MODIFYDATE" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="MODIFYUID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="USER_NAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="WINDOW" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="KMUSDATAUTUDto" nillable="true" type="tns:KMUSDATAUTUDto" />
+  <xs:complexType name="KMUSDATAUTDto">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q8="http://schemas.datacontract.org/2004/07/AppFramework.ApplicationLayer.DTO" base="q8:BaseDTOEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="APPLICATION" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DATAAUTHID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DATAAUTHNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DtoKey" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="KMUSDATAUTDs" nillable="true" type="tns:ArrayOfKMUSDATAUTDDto" />
+          <xs:element minOccurs="0" name="KMUSDATAUTUs" nillable="true" type="tns:ArrayOfKMUSDATAUTUDto" />
+          <xs:element minOccurs="0" name="KMUSWIN" nillable="true" type="tns:KMUSWINDto" />
+          <xs:element minOccurs="0" name="MODIFYDATE" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="MODIFYUID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="WINDOW" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="KMUSDATAUTDto" nillable="true" type="tns:KMUSDATAUTDto" />
+  <xs:complexType name="ArrayOfKMUSDATAUTDDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KMUSDATAUTDDto" nillable="true" type="tns:KMUSDATAUTDDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKMUSDATAUTDDto" nillable="true" type="tns:ArrayOfKMUSDATAUTDDto" />
+  <xs:complexType name="KMUSDATAUTDDto">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q9="http://schemas.datacontract.org/2004/07/AppFramework.ApplicationLayer.DTO" base="q9:BaseDTOEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AUTHFLAG" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AUTHVALUE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DATAAUTHDETAILID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DATAAUTHID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DtoKey" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="KMUSDATAUT" nillable="true" type="tns:KMUSDATAUTDto" />
+          <xs:element minOccurs="0" name="MODIFYDATE" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="MODIFYUID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="KMUSDATAUTDDto" nillable="true" type="tns:KMUSDATAUTDDto" />
+  <xs:complexType name="KMUSWINDto">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q10="http://schemas.datacontract.org/2004/07/AppFramework.ApplicationLayer.DTO" base="q10:BaseDTOEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="APPLICATION" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ASSEMBLY" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ATTRIBUTE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CLASSNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="COMPLEXITY" nillable="true" type="xs:short" />
+          <xs:element minOccurs="0" name="CONFIGURATION" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CRASH_TOLERANCE" nillable="true" type="xs:short" />
+          <xs:element minOccurs="0" name="CREATE_DATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DESCRIPTION" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DIGICERT_CHECK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DOCKSTATE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DtoKey" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FORM" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="KMUSAPP" nillable="true" type="tns:KMUSAPPDto" />
+          <xs:element minOccurs="0" name="KMUSAPP1" nillable="true" type="tns:KMUSAPPDto" />
+          <xs:element minOccurs="0" name="KMUSDATAUTUs" nillable="true" type="tns:ArrayOfKMUSDATAUTUDto" />
+          <xs:element minOccurs="0" name="KMUSDATAUTs" nillable="true" type="tns:ArrayOfKMUSDATAUTDto" />
+          <xs:element minOccurs="0" name="KMUSUSERWINs" nillable="true" type="tns:ArrayOfKMUSUSERWINDto" />
+          <xs:element minOccurs="0" name="KMUSWIN_MIs" nillable="true" type="tns:ArrayOfKMUSWIN_MIDto" />
+          <xs:element minOccurs="0" name="KMUSWIN_POWER_DEPTs" nillable="true" type="tns:ArrayOfKMUSWIN_POWER_DEPTDto" />
+          <xs:element minOccurs="0" name="KMUSWIN_POWER_USER_GROUPs" nillable="true" type="tns:ArrayOfKMUSWIN_POWER_USER_GROUPDto" />
+          <xs:element minOccurs="0" name="KMUSWIN_POWER_USERs" nillable="true" type="tns:ArrayOfKMUSWIN_POWER_USERDto" />
+          <xs:element minOccurs="0" name="LEADER_REASON" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LEADER_SCORE" nillable="true" type="xs:short" />
+          <xs:element minOccurs="0" name="MENUITEM_NAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MODIFYDATE" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="MODIFYUID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NEWINSTANCETAG" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OTHERPARM" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PASSWORDLEVEL" nillable="true" type="xs:short" />
+          <xs:element minOccurs="0" name="PROCESSTYPE" type="xs:short" />
+          <xs:element minOccurs="0" name="REDIRECTASSEMBLY" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REDIRECTFORM" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REFERENCE_WINDOW" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REPORT_NAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ROTATE_DATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="SEND_TOKEN" nillable="true" type="ser:char" />
+          <xs:element minOccurs="0" name="SERVICE_RANGE" nillable="true" type="xs:short" />
+          <xs:element minOccurs="0" name="SHOWDIALOG" type="ser:char" />
+          <xs:element minOccurs="0" name="SORT_ORDER" nillable="true" type="xs:short" />
+          <xs:element minOccurs="0" name="STATUS" nillable="true" type="ser:char" />
+          <xs:element minOccurs="0" name="STRINGPARM" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEENABLED" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEMANIFEST" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEMODE" type="xs:short" />
+          <xs:element minOccurs="0" name="WINDOW" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="KMUSWINDto" nillable="true" type="tns:KMUSWINDto" />
+  <xs:complexType name="ArrayOfKMUSDATAUTDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KMUSDATAUTDto" nillable="true" type="tns:KMUSDATAUTDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKMUSDATAUTDto" nillable="true" type="tns:ArrayOfKMUSDATAUTDto" />
+  <xs:complexType name="ArrayOfKMUSUSERWINDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KMUSUSERWINDto" nillable="true" type="tns:KMUSUSERWINDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKMUSUSERWINDto" nillable="true" type="tns:ArrayOfKMUSUSERWINDto" />
+  <xs:complexType name="KMUSUSERWINDto">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q11="http://schemas.datacontract.org/2004/07/AppFramework.ApplicationLayer.DTO" base="q11:BaseDTOEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="APPLICATION" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DtoKey" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FUNCGROUPID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="KMUSUSER" nillable="true" type="tns:KMUSUSERDto" />
+          <xs:element minOccurs="0" name="KMUSWIN" nillable="true" type="tns:KMUSWINDto" />
+          <xs:element minOccurs="0" name="MODIFYSTRING" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="READONLY" nillable="true" type="ser:char" />
+          <xs:element minOccurs="0" name="SHOWNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="STRINGPARM" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="USERWINSID" type="xs:long" />
+          <xs:element minOccurs="0" name="USER_NAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="WINDOW" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="KMUSUSERWINDto" nillable="true" type="tns:KMUSUSERWINDto" />
+  <xs:complexType name="ArrayOfKMUSWIN_MIDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KMUSWIN_MIDto" nillable="true" type="tns:KMUSWIN_MIDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKMUSWIN_MIDto" nillable="true" type="tns:ArrayOfKMUSWIN_MIDto" />
+  <xs:complexType name="KMUSWIN_MIDto">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q12="http://schemas.datacontract.org/2004/07/AppFramework.ApplicationLayer.DTO" base="q12:BaseDTOEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="APPLICATION" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DtoKey" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EMP_CODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="KMUEMP" nillable="true" type="tns:KMUEMPDto" />
+          <xs:element minOccurs="0" name="KMUSWIN" nillable="true" type="tns:KMUSWINDto" />
+          <xs:element minOccurs="0" name="MIS_TYPE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="WINDOW" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="KMUSWIN_MIDto" nillable="true" type="tns:KMUSWIN_MIDto" />
+  <xs:complexType name="KMUEMPDto">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q13="http://schemas.datacontract.org/2004/07/AppFramework.ApplicationLayer.DTO" base="q13:BaseDTOEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BIRTH_DATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="BIRTH_PLACE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BOARD_DATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CHART_NO" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CONTACT_ADDR" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CONTACT_TEL" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CONT_NAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CONT_TEL" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DEL_INS_DATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DEPT_CODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DISC_CODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DtoKey" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EMP_CODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EMP_CODE_7" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EMP_NAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EMP_STATUS" nillable="true" type="ser:char" />
+          <xs:element minOccurs="0" name="END_DATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ENG_FIRST" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ENG_LAST" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ENG_MIDD" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ENG_NAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="E_MAIL" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="GROUP_DEPT" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="GROUP_STATUS" nillable="true" type="ser:char" />
+          <xs:element minOccurs="0" name="ID_NO" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="INS_DATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="JOB_CODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="KMUSMIs" nillable="true" type="tns:ArrayOfKMUSMIDto" />
+          <xs:element minOccurs="0" name="KMUSPOWER_USERs" nillable="true" type="tns:ArrayOfKMUSPOWER_USERDto" />
+          <xs:element minOccurs="0" name="KMUSWIN_MIs" nillable="true" type="tns:ArrayOfKMUSWIN_MIDto" />
+          <xs:element minOccurs="0" name="KMUSWIN_POWER_USERs" nillable="true" type="tns:ArrayOfKMUSWIN_POWER_USERDto" />
+          <xs:element minOccurs="0" name="LOC_CODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NOCHARGE_FLAG" nillable="true" type="ser:char" />
+          <xs:element minOccurs="0" name="NONORG_ID" nillable="true" type="ser:char" />
+          <xs:element minOccurs="0" name="ORG_UNIT" nillable="true" type="ser:char" />
+          <xs:element minOccurs="0" name="PART_CODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PART_TYPE" nillable="true" type="ser:char" />
+          <xs:element minOccurs="0" name="REGIST_ADDR" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REGIST_TEL" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RETI_CODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SCHL_DEPT" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SCHL_JOB" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SERVE_DATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="SEX" nillable="true" type="ser:char" />
+          <xs:element minOccurs="0" name="UPD_DATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPD_USER" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="KMUEMPDto" nillable="true" type="tns:KMUEMPDto" />
+  <xs:complexType name="ArrayOfKMUSMIDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KMUSMIDto" nillable="true" type="tns:KMUSMIDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKMUSMIDto" nillable="true" type="tns:ArrayOfKMUSMIDto" />
+  <xs:complexType name="KMUSMIDto">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q14="http://schemas.datacontract.org/2004/07/AppFramework.ApplicationLayer.DTO" base="q14:BaseDTOEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="APPLICATION" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DtoKey" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EMP_CODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="KMUEMPs" nillable="true" type="tns:KMUEMPDto" />
+          <xs:element minOccurs="0" name="KMUSAPP" nillable="true" type="tns:KMUSAPPDto" />
+          <xs:element minOccurs="0" name="MIS_TYPE" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="KMUSMIDto" nillable="true" type="tns:KMUSMIDto" />
+  <xs:complexType name="ArrayOfKMUSPOWER_USERDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KMUSPOWER_USERDto" nillable="true" type="tns:KMUSPOWER_USERDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKMUSPOWER_USERDto" nillable="true" type="tns:ArrayOfKMUSPOWER_USERDto" />
+  <xs:complexType name="KMUSPOWER_USERDto">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q15="http://schemas.datacontract.org/2004/07/AppFramework.ApplicationLayer.DTO" base="q15:BaseDTOEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="APPLICATION" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DESCRIPTION" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DtoKey" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EMP_CODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="KMUEMP" nillable="true" type="tns:KMUEMPDto" />
+          <xs:element minOccurs="0" name="KMUSAPP" nillable="true" type="tns:KMUSAPPDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="KMUSPOWER_USERDto" nillable="true" type="tns:KMUSPOWER_USERDto" />
+  <xs:complexType name="ArrayOfKMUSWIN_POWER_USERDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KMUSWIN_POWER_USERDto" nillable="true" type="tns:KMUSWIN_POWER_USERDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKMUSWIN_POWER_USERDto" nillable="true" type="tns:ArrayOfKMUSWIN_POWER_USERDto" />
+  <xs:complexType name="KMUSWIN_POWER_USERDto">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q16="http://schemas.datacontract.org/2004/07/AppFramework.ApplicationLayer.DTO" base="q16:BaseDTOEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="APPLICATION" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DESCRIPTION" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DtoKey" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EMP_CODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="KMUEMP" nillable="true" type="tns:KMUEMPDto" />
+          <xs:element minOccurs="0" name="KMUSWIN" nillable="true" type="tns:KMUSWINDto" />
+          <xs:element minOccurs="0" name="WINDOW" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="KMUSWIN_POWER_USERDto" nillable="true" type="tns:KMUSWIN_POWER_USERDto" />
+  <xs:complexType name="ArrayOfKMUSWIN_POWER_DEPTDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KMUSWIN_POWER_DEPTDto" nillable="true" type="tns:KMUSWIN_POWER_DEPTDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKMUSWIN_POWER_DEPTDto" nillable="true" type="tns:ArrayOfKMUSWIN_POWER_DEPTDto" />
+  <xs:complexType name="KMUSWIN_POWER_DEPTDto">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q17="http://schemas.datacontract.org/2004/07/AppFramework.ApplicationLayer.DTO" base="q17:BaseDTOEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="APPLICATION" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DEPT_CODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DtoKey" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="KMUDEP" nillable="true" type="tns:KMUDEPDto" />
+          <xs:element minOccurs="0" name="KMUSWIN" nillable="true" type="tns:KMUSWINDto" />
+          <xs:element minOccurs="0" name="WINDOW" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="KMUSWIN_POWER_DEPTDto" nillable="true" type="tns:KMUSWIN_POWER_DEPTDto" />
+  <xs:complexType name="KMUDEPDto">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q18="http://schemas.datacontract.org/2004/07/AppFramework.ApplicationLayer.DTO" base="q18:BaseDTOEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ACC_KIND" nillable="true" type="ser:char" />
+          <xs:element minOccurs="0" name="CHIEF_EMP" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CHIEF_NAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DEPT_CATE" nillable="true" type="ser:char" />
+          <xs:element minOccurs="0" name="DEPT_CODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DEPT_NAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DEPT_NAME_O" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DEPT_TYPE" nillable="true" type="ser:char" />
+          <xs:element minOccurs="0" name="DtoKey" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ENGLISH_NAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ENGLISH_NAME_O" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EXAM_FLAG" nillable="true" type="ser:char" />
+          <xs:element minOccurs="0" name="INCOME_DEPT_CODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IPD_FLAG" nillable="true" type="ser:char" />
+          <xs:element minOccurs="0" name="KMUSPOWER_DEPTs" nillable="true" type="tns:ArrayOfKMUSPOWER_DEPTDto" />
+          <xs:element minOccurs="0" name="KMUSWIN_POWER_DEPTs" nillable="true" type="tns:ArrayOfKMUSWIN_POWER_DEPTDto" />
+          <xs:element minOccurs="0" name="NHDIV" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OPD_FLAG" nillable="true" type="ser:char" />
+          <xs:element minOccurs="0" name="OPD_REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPD_DATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPD_USER" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="KMUDEPDto" nillable="true" type="tns:KMUDEPDto" />
+  <xs:complexType name="ArrayOfKMUSPOWER_DEPTDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KMUSPOWER_DEPTDto" nillable="true" type="tns:KMUSPOWER_DEPTDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKMUSPOWER_DEPTDto" nillable="true" type="tns:ArrayOfKMUSPOWER_DEPTDto" />
+  <xs:complexType name="KMUSPOWER_DEPTDto">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q19="http://schemas.datacontract.org/2004/07/AppFramework.ApplicationLayer.DTO" base="q19:BaseDTOEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="APPLICATION" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DEPT_CODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DtoKey" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="KMUDEP" nillable="true" type="tns:KMUDEPDto" />
+          <xs:element minOccurs="0" name="KMUSAPP" nillable="true" type="tns:KMUSAPPDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="KMUSPOWER_DEPTDto" nillable="true" type="tns:KMUSPOWER_DEPTDto" />
+  <xs:complexType name="ArrayOfKMUSWIN_POWER_USER_GROUPDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KMUSWIN_POWER_USER_GROUPDto" nillable="true" type="tns:KMUSWIN_POWER_USER_GROUPDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKMUSWIN_POWER_USER_GROUPDto" nillable="true" type="tns:ArrayOfKMUSWIN_POWER_USER_GROUPDto" />
+  <xs:complexType name="KMUSWIN_POWER_USER_GROUPDto">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q20="http://schemas.datacontract.org/2004/07/AppFramework.ApplicationLayer.DTO" base="q20:BaseDTOEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="APPLICATION" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DtoKey" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="GROUP_NAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="KMUSUSER" nillable="true" type="tns:KMUSUSERDto" />
+          <xs:element minOccurs="0" name="KMUSWIN" nillable="true" type="tns:KMUSWINDto" />
+          <xs:element minOccurs="0" name="WINDOW" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="KMUSWIN_POWER_USER_GROUPDto" nillable="true" type="tns:KMUSWIN_POWER_USER_GROUPDto" />
+  <xs:complexType name="ArrayOfKMUSGROUSERDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KMUSGROUSERDto" nillable="true" type="tns:KMUSGROUSERDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKMUSGROUSERDto" nillable="true" type="tns:ArrayOfKMUSGROUSERDto" />
+  <xs:complexType name="KMUSGROUSERDto">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q21="http://schemas.datacontract.org/2004/07/AppFramework.ApplicationLayer.DTO" base="q21:BaseDTOEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DtoKey" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="GROUP_NAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="KMUSUSER" nillable="true" type="tns:KMUSUSERDto" />
+          <xs:element minOccurs="0" name="KMUSUSER1" nillable="true" type="tns:KMUSUSERDto" />
+          <xs:element minOccurs="0" name="USER_NAME" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="KMUSGROUSERDto" nillable="true" type="tns:KMUSGROUSERDto" />
+  <xs:complexType name="ArrayOfKMUSPOWER_USER_GROUPDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KMUSPOWER_USER_GROUPDto" nillable="true" type="tns:KMUSPOWER_USER_GROUPDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKMUSPOWER_USER_GROUPDto" nillable="true" type="tns:ArrayOfKMUSPOWER_USER_GROUPDto" />
+  <xs:complexType name="KMUSPOWER_USER_GROUPDto">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q22="http://schemas.datacontract.org/2004/07/AppFramework.ApplicationLayer.DTO" base="q22:BaseDTOEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="APPLICATION" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DtoKey" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="GROUP_NAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="KMUSAPP" nillable="true" type="tns:KMUSAPPDto" />
+          <xs:element minOccurs="0" name="KMUSUSER" nillable="true" type="tns:KMUSUSERDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="KMUSPOWER_USER_GROUPDto" nillable="true" type="tns:KMUSPOWER_USER_GROUPDto" />
+  <xs:complexType name="ArrayOfKMUSCATEGORY_APPDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KMUSCATEGORY_APPDto" nillable="true" type="tns:KMUSCATEGORY_APPDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKMUSCATEGORY_APPDto" nillable="true" type="tns:ArrayOfKMUSCATEGORY_APPDto" />
+  <xs:complexType name="KMUSCATEGORY_APPDto">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q23="http://schemas.datacontract.org/2004/07/AppFramework.ApplicationLayer.DTO" base="q23:BaseDTOEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="APPLICATION" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CATEGORYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DtoKey" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="KMUSAPP" nillable="true" type="tns:KMUSAPPDto" />
+          <xs:element minOccurs="0" name="KMUSCATEGORY" nillable="true" type="tns:KMUSCATEGORYDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="KMUSCATEGORY_APPDto" nillable="true" type="tns:KMUSCATEGORY_APPDto" />
+  <xs:complexType name="ArrayOfKMUSNODEDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KMUSNODEDto" nillable="true" type="tns:KMUSNODEDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKMUSNODEDto" nillable="true" type="tns:ArrayOfKMUSNODEDto" />
+  <xs:complexType name="KMUSNODEDto">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q24="http://schemas.datacontract.org/2004/07/AppFramework.ApplicationLayer.DTO" base="q24:BaseDTOEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="APPLICATION" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DESCRIPTION" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DtoKey" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="KMUSAPP" nillable="true" type="tns:KMUSAPPDto" />
+          <xs:element minOccurs="0" name="KMUSNODE1" nillable="true" type="tns:KMUSNODEDto" />
+          <xs:element minOccurs="0" name="KMUSNODEs" nillable="true" type="tns:ArrayOfKMUSNODEDto" />
+          <xs:element minOccurs="0" name="NODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NODE_TYPE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OTHERPARM" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PARENT_NODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SORT_ORDER" nillable="true" type="xs:short" />
+          <xs:element minOccurs="0" name="STATUS" type="ser:char" />
+          <xs:element minOccurs="0" name="STRINGPARM" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="KMUSNODEDto" nillable="true" type="tns:KMUSNODEDto" />
+  <xs:complexType name="ArrayOfKMUSWINDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KMUSWINDto" nillable="true" type="tns:KMUSWINDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKMUSWINDto" nillable="true" type="tns:ArrayOfKMUSWINDto" />
+  <xs:complexType name="ArrayOfTreeApps">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TreeApps" nillable="true" type="tns:TreeApps" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTreeApps" nillable="true" type="tns:ArrayOfTreeApps" />
+  <xs:complexType name="TreeApps">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:KMUSAPPDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="WinNode" nillable="true" type="tns:ArrayOfTreeNodes" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TreeApps" nillable="true" type="tns:TreeApps" />
+  <xs:complexType name="ArrayOfTreeNodes">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TreeNodes" nillable="true" type="tns:TreeNodes" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTreeNodes" nillable="true" type="tns:ArrayOfTreeNodes" />
+  <xs:complexType name="TreeNodes">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:KMUSNODEDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="User_NodeDtos" nillable="true" type="tns:ArrayOfTreeNodes" />
+          <xs:element minOccurs="0" name="WinInfo" nillable="true" type="tns:KMUSWINDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TreeNodes" nillable="true" type="tns:TreeNodes" />
+  <xs:complexType name="ArrayOfUser_Identity">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="User_Identity" nillable="true" type="tns:User_Identity" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUser_Identity" nillable="true" type="tns:ArrayOfUser_Identity" />
+  <xs:complexType name="User_Identity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="UserIdentity" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserType" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="User_Identity" nillable="true" type="tns:User_Identity" />
+  <xs:complexType name="ArrayOfKMUSCATEGORYDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KMUSCATEGORYDto" nillable="true" type="tns:KMUSCATEGORYDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKMUSCATEGORYDto" nillable="true" type="tns:ArrayOfKMUSCATEGORYDto" />
+  <xs:complexType name="ArrayOfWinData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WinData" nillable="true" type="tns:WinData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWinData" nillable="true" type="tns:ArrayOfWinData" />
+  <xs:complexType name="WinData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DESCRIPTION" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WINDOW" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WinData" nillable="true" type="tns:WinData" />
+  <xs:complexType name="ArrayOfWinDataAuth">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WinDataAuth" nillable="true" type="tns:WinDataAuth" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWinDataAuth" nillable="true" type="tns:ArrayOfWinDataAuth" />
+  <xs:complexType name="WinDataAuth">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AUTHFLAG" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AUTHVALUE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DATAAUTHID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WinDataAuth" nillable="true" type="tns:WinDataAuth" />
+  <xs:complexType name="ArrayOfKMUCHFDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KMUCHFDto" nillable="true" type="tns:KMUCHFDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKMUCHFDto" nillable="true" type="tns:ArrayOfKMUCHFDto" />
+  <xs:complexType name="KMUCHFDto">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q25="http://schemas.datacontract.org/2004/07/AppFramework.ApplicationLayer.DTO" base="q25:BaseDTOEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CHIEF_CODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DEPT_CODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DtoKey" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="EMP_CODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HOSPCODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SDATE" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="KMUCHFDto" nillable="true" type="tns:KMUCHFDto" />
+  <xs:complexType name="V_User_List">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Contain_User" nillable="true" type="tns:ArrayOfKMUSUSERDto" />
+      <xs:element minOccurs="0" name="NotContain_User" nillable="true" type="tns:ArrayOfKMUSUSERDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_User_List" nillable="true" type="tns:V_User_List" />
+  <xs:complexType name="ArrayOfKMUSUSERDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KMUSUSERDto" nillable="true" type="tns:KMUSUSERDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKMUSUSERDto" nillable="true" type="tns:ArrayOfKMUSUSERDto" />
+  <xs:complexType name="ArrayOfApplicationMenu">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ApplicationMenu" nillable="true" type="tns:ApplicationMenu" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfApplicationMenu" nillable="true" type="tns:ArrayOfApplicationMenu" />
+  <xs:complexType name="ApplicationMenu">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ImageIndex" type="xs:short" />
+      <xs:element minOccurs="0" name="IsApplication" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsCategory" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsFavorite" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsNode" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsPlatform" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsWindow" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MenuId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ParentId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SequenceNo" type="xs:short" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApplicationMenu" nillable="true" type="tns:ApplicationMenu" />
+  <xs:complexType name="SecurityApplicationMenu">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApplicationMenu" nillable="true" type="tns:ApplicationMenu" />
+      <xs:element minOccurs="0" name="User" nillable="true" type="tns:User" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SecurityApplicationMenu" nillable="true" type="tns:SecurityApplicationMenu" />
+  <xs:complexType name="User">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="UserId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="User" nillable="true" type="tns:User" />
+  <xs:complexType name="MenuProperty">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApplicationMenu" nillable="true" type="tns:ApplicationMenu" />
+      <xs:element minOccurs="0" name="Arguments" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CanExecute" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DigiCertCheck" type="xs:boolean" />
+      <xs:element minOccurs="0" name="FTPAccount" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FTPHost" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FTPPassword" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FTPSource" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FTPTarget" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OneInstance" type="xs:boolean" />
+      <xs:element minOccurs="0" name="OtherMemo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OtherURL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PasswordLevel" type="xs:short" />
+      <xs:element minOccurs="0" name="Process" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProcessType" type="tns:ProcessType" />
+      <xs:element minOccurs="0" name="StartupObject" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UpdateEnabled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="UpdateManifest" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UpdateMode" type="tns:UpdateMode" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MenuProperty" nillable="true" type="tns:MenuProperty" />
+  <xs:simpleType name="ProcessType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="PlugIn" />
+      <xs:enumeration value="執行檔" />
+      <xs:enumeration value="瀏覽器" />
+      <xs:enumeration value="瀏覽器PlugIn" />
+      <xs:enumeration value="自訂" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ProcessType" nillable="true" type="tns:ProcessType" />
+  <xs:simpleType name="UpdateMode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Manifest" />
+      <xs:enumeration value="FTP" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="UpdateMode" nillable="true" type="tns:UpdateMode" />
+  <xs:complexType name="ApplicationPermission">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MenuId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Permissions" nillable="true" type="tns:ArrayOfPermission" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApplicationPermission" nillable="true" type="tns:ApplicationPermission" />
+  <xs:complexType name="ArrayOfPermission">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Permission" nillable="true" type="tns:Permission" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPermission" nillable="true" type="tns:ArrayOfPermission" />
+  <xs:complexType name="Permission">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IsPermission" type="xs:boolean" />
+      <xs:element minOccurs="0" name="RoleCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RoleName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Permission" nillable="true" type="tns:Permission" />
+  <xs:complexType name="ArrayOfKMUSAPPCOUNTDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KMUSAPPCOUNTDto" nillable="true" type="tns:KMUSAPPCOUNTDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKMUSAPPCOUNTDto" nillable="true" type="tns:ArrayOfKMUSAPPCOUNTDto" />
+  <xs:complexType name="KMUSAPPCOUNTDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="APPLICATION" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CATEGORYID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="COUNT" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="KMUSAPPCOUNTDto" nillable="true" type="tns:KMUSAPPCOUNTDto" />
+  <xs:complexType name="ArrayOfV_KMUSMIDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_KMUSMIDto" nillable="true" type="tns:V_KMUSMIDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfV_KMUSMIDto" nillable="true" type="tns:ArrayOfV_KMUSMIDto" />
+  <xs:complexType name="V_KMUSMIDto">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:KMUSWIN_MIDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CONTACT_TEL" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EMP_NAME" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="V_KMUSMIDto" nillable="true" type="tns:V_KMUSMIDto" />
+  <xs:complexType name="TempInquiry">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="InquiryUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShowInquiry" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TempInquiry" nillable="true" type="tns:TempInquiry" />
+  <xs:simpleType name="TreeNodeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Platform" />
+      <xs:enumeration value="Category" />
+      <xs:enumeration value="Application" />
+      <xs:enumeration value="Node" />
+      <xs:enumeration value="Window" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TreeNodeType" nillable="true" type="tns:TreeNodeType" />
+</xs:schema>

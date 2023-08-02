@@ -1,0 +1,33 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <script src="~/Scripts/js/jquery-3.6.1.js"></script>
+    <script src="~/Scripts/js/jquery-3.6.1.min.js"></script>
+    <script src="~/Scripts/js/jquery-ui-1.13.2.js"></script>
+    <script src="~/Scripts/js/jquery-ui-1.13.2.min.js"></script>
+    <title>Froms</title>
+</head>
+<body>
+    <div> 
+        <iframe width="100%" height="800"></iframe>
+    </div>
+    <script>
+        $.ajax({
+            url: "/iKASA/FromsList",
+            data: { fileId: "p103588" }, // 傳入檔案ID
+            type: "GET",
+            success: function (url) {
+                // 將URL設定為iframe的src屬性
+                $("iframe").attr("src", url);
+            }
+        });
+    </script>
+</body>
+</html>

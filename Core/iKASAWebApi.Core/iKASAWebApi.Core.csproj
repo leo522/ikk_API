@@ -1,0 +1,766 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8A7F32AE-B05A-4C5E-BA8B-A5966CD2F71C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>KMUH.iKASAWebApi</RootNamespace>
+    <AssemblyName>iKASAWebApi.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EduActivity.Core">
+      <HintPath>..\..\..\..\..\高醫教學系統專案\src\bin\EduActivity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.XML" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="AppFramework">
+      <HintPath>C:\KMUH_HIS\Common\AppFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="AppFramework.Infrastructure">
+      <HintPath>C:\KMUH_HIS\Common\AppFramework.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="FunctionLibrary.Core">
+      <HintPath>C:\KMUH_HIS\Common\FunctionLibrary.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.OpenAccess, Version=2011.3.1129.2, Culture=neutral, PublicKeyToken=7ce17eeaf1d59342, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.OpenAccess.35.Extensions, Version=2011.3.1129.2, Culture=neutral, PublicKeyToken=7ce17eeaf1d59342, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.OpenAccess.RunTime, Version=2011.3.1129.2, Culture=neutral, PublicKeyToken=7ce17eeaf1d59342, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Compile Include="ApplicationLayer\Assemblers\Assemblers.ext.cs" />
+    <Compile Include="ApplicationLayer\DTO\Transports.ext.cs" />
+    <Compile Include="ApplicationLayer\Services\CodeRefAppService.cs" />
+    <Compile Include="ApplicationLayer\Services\iKASAWebApiAppService.cs" />
+    <Compile Include="ApplicationLayer\Services\_generated\IiKASAWebApiAppService.generated.cs" />
+    <Compile Include="ApplicationLayer\Services\_generated\iKASAWebApiNormalAppService.generated.cs" />
+    <Compile Include="DomainModel\Entities\ACCOUNT.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\ACCOUNTROLE.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\ACCOUNTROLEIMPORT.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\ACTTYPETREE_TEMP.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\AUTHMENU.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\AUTHROLE.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\AUTOEDUFORMTEMPLATEEXCEPT.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\AUTOEDUFORMTEMPLATELIST.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\AUTOEDUFORMTEMPLATESIGNER.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\AUTOEDUFORMTEMPLATETARGET.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\CICBOOK.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\CLERKIPDNOTEDATUM.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\DEPSECDATUM.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\DEPSECTEMP.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\DOCTORPOINT.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\DOCTORPOINTCALTYPE.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\DOCTORPOINTTYPE.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\EDUACTBOOKING.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\EDUACTTARGET.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\EDUACTTOPIC.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\EDUACTTYPE.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\EDUACTTYPEGROUPING.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\EDUACTTYPEREF.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\EDUACTTYPEROLEREF.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\EDUACTTYPE_BK.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\EDUACTVIEWTARGET.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\EDUFORMSTASTICPERMISSION.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\EDUFORMTEMPLATELIST.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\EDUFORMTEMPLATETARGET.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\EDUMENU.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\EDUNOTALERTSETTING.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\EDUNOTE.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\EDUNOTEITEM.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\EDUNOTELIST.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\EDUNOTETEMPLATE.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\EDUPASSPORTINSITEM.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\EDUPASSPORTINSITEMDET.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\EDUPASSPORTINSITEMREF.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\EDUPASSPORTINSITEMREJECTHI.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\EDUPASSPORTINSTANCE.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\EDUPASSPORTITEM.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\EDUPASSPORTITEMDET.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\EDUPASSPORTITEMTARGET.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\EDUPASSPORTPREF.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\EDUPASSPORTTEMPLATE.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\EDUPASSPORTTEMPLATEITEM.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\EDUPASSPORTTEMPLATETARGET.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\EDUQUESTION.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\EDUREFTEACHER.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\EDUSCORE.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\EDUSENTENCE.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\EDUSETTING.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\EDUSTOP.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\EDUSTOPACTATTACHMENT.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\EDUSTOPACTSCHEDULE.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\EDUTEACHERTYPE.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\EDUTEAM.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\EDUTEAMMEMBER.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\EDUTEAMMEMBERRUNDOWN.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\EDUTEAMMEMBERRUNDOWN_TRANSLOG.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\EDUTEAMRUNDOWN.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\EDUTERM.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\EDUTERMFORMINSTANCE.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\EDUTERMFORMREQ.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\EDUTERMFORMREQTEMPLATE.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\EDUTERMFORMREQTEMPLATEDET.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\ELEARNINGBOOKING.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\ELEARNINGCLASS.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\ELEARNINGEMPITEM.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\ELEARNINGEMPITEMLOG.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\ELEARNINGITEM.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\FIXMEMBERDATUM.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\FORMCATEGORY.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\FORMCATEGORYREF.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\FORM_INSTANCE.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\FORM_INSTANCES_BK.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\FORM_INSTANCES_DELLOG.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\FORM_INSTANCE_ATTACHMENT.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\FORM_INSTANCE_BLOCK.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\FORM_INSTANCE_ELEMENT.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\FORM_INSTANCE_ELEMENTS_BK.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\FORM_INSTANCE_EXPRESSION.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\FORM_INSTANCE_EXPRESSIONS_BK.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\FORM_INSTANCE_RETURN_LOG.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\FORM_INSTANCE_TARGET.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\FORM_INSTANCE_TARGETS_BK.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\FORM_INSTANCE_TARGETS_DELLOG.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\FORM_INSTANCE_TRANSLOG.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\FORM_OPTION_TYPE.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\FORM_TEMPLATE.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\FORM_TEMPLATES_BK.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\FORM_TEMPLATE_DYNAMIC_ELEMENT.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\FORM_TEMPLATE_ELEMENT.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\FORM_TEMPLATE_ELEMENTS_BK.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\FORM_TEMPLATE_ELEMENT_READONLY.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\FORM_TEMPLATE_EXPRESSION.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\FORM_TEMPLATE_GROUP.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\FORM_TEMPLATE_GROUPS_BK.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\FORM_TEMPLATE_IMAGE.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\FORM_TEMPLATE_LIBRARY.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\FORM_TEMPLATE_LIBRARY_OPTION.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\FORM_TEMPLATE_NECESSARY.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\FORM_TEMPLATE_PERMISSION.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\FORM_TEMPLATE_SCRIPT.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\FORM_TEMPLATE_SINGLE.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\FORM_TEMPLATE_SQL.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\FORM_TEMPLATE_SUBMIT_SQL.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\FORM_TODO_LIST.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\GOODVSDATADE.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\GOODVSDATUM.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\HEALTEACHTIME.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\HEALTEACHTIMERATE.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\IKASA_ACTUPLOADFILE.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\IKASA_ERCASE.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\IKASA_ERCASE_EVAL.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\IKASA_ERCASE_EVALDET.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\IKASA_IPDDATACOUNT.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\IKASA_MENU.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\IKASA_MENUPARAM.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\IKASA_MENUREF.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\IKASA_OSCEEXAM.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\IKASA_OSCEEXAMSCORE.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\IKASA_OSCEEXAMSTAGE.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\IKASA_UPLOADFILE.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\IMPORTTEMP.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\JOBFORMSETTING.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\LOGINLOG.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\MEDICALTEACHPOINT.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\MEDICALVOTELIST.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\MEMBER.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\MEMBER_BK.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\MESSAGEBOARD.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\MONTHLYTEACHPOINTCALCDATUM.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\MYLIST.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\MYLISTDET.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\NEWS.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\NEWSVIEWTARGET.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\NEWS_ATTACHMENT.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\NNOTE.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\NNOTEITEM.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\NURSELIST.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\OSCEBLOCKTIME.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\OSCECERT.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\PASSPORTCHECKITEM.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\PASSPORTDOCGRADE.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\PASSPORTJOBFINALMAN.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\PASSPORTJOBTITLEITEM.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\PASSPORTJOBTITLEITEM_BK.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\PASSPORTSPECIALLIST.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\PASSPORTSTUDENTAPPLICATIONITEM.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\PASSPORTSTUDENTAPPLICATIONITEMFAILLOG.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\PASSPORTSTUDENTAPPLICATIONITEM_BK.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\PASSPORTSTUDENTAPPLICATIONITEM_BK2.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\PSNOPD.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\RECORDEDUACTREF.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\RECORDINSDET.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\RECORDINSREADER.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\RECORDINSSIGNIN.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\RECORDINSTANCE.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\RECORDINSTANCEREJECTLOG.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\RECORDINSVIEWER.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\RECORDTEMPLATE.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\REPORTDATATEMP.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\R分級資料.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\SCHEDULERLOG.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\SCOREINSTANCE.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\SCOREINSTANCEDETAIL.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\SCORESETTING.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\SCORESETTINGDETAIL.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\SCORESETTINGJOB.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\SCORESETTINGSCORETYPE.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\TEACHPOINTCALCTYPE.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\TEACHPOINTCALCTYPEREF.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\TEACHPOINTEMPITEMDATUM.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\TEACHPOINTITEM.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\TEACHPOINTITEMREQUIRE.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\TEACHPOINTJOBITEM.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\TEACHPOINTREF.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\TEACHTIMEKPIREF.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\TEACHTIMEKPIREFTEMP.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\TEACHTIMERATE.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\TEACHTIMETYPE.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\TEST.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\TRAININGTIME.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\VOTEGCOND.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\VOTEGROUP.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\VOTEINSDET.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\VOTEINSTANCE.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\VOTEJOB.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\VOTEMAIN.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\VOTETARGET.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\VOTETEMPDATUM.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\VOTEUSERDEFINELIST.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\_generated\CodeRefOperationService.generated.cs" />
+    <Compile Include="DomainModel\Entities\_generated\IiKASAWebApiOperationService.generated.cs" />
+    <Compile Include="DomainModel\Entities\_generated\iKASAWebApiAssemblers.generated.cs" />
+    <Compile Include="DomainModel\Entities\_generated\iKASAWebApiDiagrams.generated.cs" />
+    <Compile Include="DomainModel\Entities\_generated\iKASAWebApiEntityServices.generated.cs" />
+    <Compile Include="DomainModel\Entities\_generated\iKASAWebApiOperationService.generated.cs" />
+    <Compile Include="DomainModel\Entities\_generated\iKASAWebApiTransports.generated.cs" />
+    <Compile Include="DomainModel\Entities\住院醫師暫存.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\抓MAIL暫存.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\移課程暫存.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\西醫受訓人員名單.generated.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\Data\Repositories\iKASAWebApiRepositories.generated.cs" />
+    <Compile Include="Infrastructure\Data\Repositories\RepositoryExtensions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DomainModel\Entities\iKASAWebApiDiagrams.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\iKASAWebApiDiagrams.ext.cs">
+      <DependentUpon>iKASAWebApiDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Entities\Entities.ext.cs" />
+    <Compile Include="DomainModel\Factories\EntityFactories.cs" />
+    <Compile Include="DomainModel\Specifications\Specifications.cs" />
+    <Compile Include="Resources\Messages.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Messages.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Messages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Messages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <OpenAccessDeploy Include="DomainModel\Entities\iKASAWebApiDiagrams.rlinq">
+      <Generator>MetaModelCodeGenerator</Generator>
+      <LastGenOutput>iKASAWebApiDiagrams.cs</LastGenOutput>
+    </OpenAccessDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="ApplicationLayer\Services\iKASAWebApiAppService.log">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>iKASAWebApiAppService.tt</DependentUpon>
+    </None>
+    <None Include="ApplicationLayer\Services\iKASAWebApiAppService.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastOutputs>
+..\..\..\..\Services\iKASAWebApi.Services\CodeRefWCFService.svc
+..\..\..\..\Services\iKASAWebApi.Services\CodeRefWCFService.svc.cs
+..\..\..\..\Services\iKASAWebApi.Services\ICodeRefWCFService.generated.cs
+..\..\..\..\Services\iKASAWebApi.Services\IiKASAWebApiWCFService.generated.cs
+..\..\..\..\Services\iKASAWebApi.Services\iKASAWebApiWCFService.svc
+..\..\..\..\Services\iKASAWebApi.Services\iKASAWebApiWCFService.svc.cs
+..\..\..\..\Tests\iKASAWebApi.UnitTests\AppServiceUnitTest.txt
+.\_generated\IiKASAWebApiAppService.generated.cs
+.\_generated\iKASAWebApiAppServiceController.generated.txt
+.\_generated\iKASAWebApiNormalAppService.generated.cs
+.\iKASAWebApiAppService.log
+</LastOutputs>
+      <LastGenOutput>iKASAWebApiAppService.log</LastGenOutput>
+    </None>
+    <None Include="DomainModel\Entities\iKASAWebApiDiagrams.log">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>iKASAWebApiDiagrams.tt</DependentUpon>
+    </None>
+    <None Include="DomainModel\Entities\iKASAWebApiDiagrams.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastOutputs>
+..\..\Infrastructure\Data\Repositories\iKASAWebApiRepositories.generated.cs
+.\_generated\CodeRefOperationService.generated.cs
+.\_generated\EntityFactories.generated.txt
+.\_generated\IiKASAWebApiOperationService.generated.cs
+.\_generated\iKASAWebApiAssemblers.ext.generated.txt
+.\_generated\iKASAWebApiAssemblers.generated.cs
+.\_generated\iKASAWebApiDiagrams.generated.cs
+.\_generated\iKASAWebApiEntities.ext.generated.txt
+.\_generated\iKASAWebApiEntityServices.generated.cs
+.\_generated\iKASAWebApiOperationService.generated.cs
+.\_generated\iKASAWebApiTransports.ext.generated.txt
+.\_generated\iKASAWebApiTransports.generated.cs
+.\_generated\Specifications.generated.txt
+.\iKASAWebApiDiagrams.log
+</LastOutputs>
+      <LastGenOutput>iKASAWebApiDiagrams.log</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ApplicationLayer\Services\_generated\iKASAWebApiAppServiceController.generated.txt" />
+    <Content Include="DomainModel\Entities\_generated\EntityFactories.generated.txt" />
+    <Content Include="DomainModel\Entities\_generated\iKASAWebApiAssemblers.ext.generated.txt" />
+    <Content Include="DomainModel\Entities\_generated\iKASAWebApiEntities.ext.generated.txt" />
+    <Content Include="DomainModel\Entities\_generated\iKASAWebApiTransports.ext.generated.txt" />
+    <Content Include="DomainModel\Entities\_generated\Specifications.generated.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />
+  <Import Condition="Exists('$(MSBuildExtensionsPath)\OpenAccess.targets')" Project="$(MSBuildExtensionsPath)\OpenAccess.targets" />
+</Project>

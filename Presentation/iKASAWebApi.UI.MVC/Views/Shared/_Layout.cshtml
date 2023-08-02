@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.SystemName</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/bootstrap_css")  
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body >
+    <div class="background-black title-block" >
+        <div class="row">
+            @Html.Action("PageHeader", "Home")
+       </div>
+   </div>
+
+    <div id="wrapper">
+        <div class="overlay"></div>
+        <!-- Sidebar -->
+        @Html.Action("FunctionMenu", "Home")
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+                <span class="hamb-top"></span>
+                <span class="hamb-middle"></span>
+                <span class="hamb-bottom"></span>
+            </button>
+            <div class="wide-container">
+                @RenderBody()
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/customjs")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

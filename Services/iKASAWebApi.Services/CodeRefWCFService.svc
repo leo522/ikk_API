@@ -1,0 +1,2 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="KMUH.iKASAWebApi.Services.CodeRefWCFService" CodeBehind="CodeRefWCFService.svc.cs" %>
+

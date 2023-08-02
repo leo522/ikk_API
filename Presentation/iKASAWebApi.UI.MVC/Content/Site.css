@@ -1,0 +1,121 @@
+﻿body {
+    padding-top: 0px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.color-white {
+    color: white;
+}
+
+.color-bluegreen {
+    color: #66BAB7;
+}
+
+.color-red {
+    color: red;
+}
+
+.background-bluegreen {
+    color: white;
+    background-color: #428BCA;
+}
+
+.background-black {
+    background-color: rgba(0,0,0,0.7);
+}
+
+.logo-img{
+    height:30px;
+}
+
+.user-icon{
+    font-size:30px;
+    color: #808080;
+    vertical-align:middle; 
+}
+
+.title-block {
+	padding-left: 15px;
+    padding-right: 15px;
+}
+
+.title-desc {
+	font-weight: bold;
+    font-style: normal;
+	font-variant: normal;
+	color: #FFFFFF;
+    font-size:24px;
+	text-transform: none;	
+	text-decoration: none;
+    vertical-align:middle;    
+	font-family: "微軟正黑體";    
+}
+
+.login-info {
+	font-weight: bold;
+    font-style: normal;
+	font-variant: normal;
+	color: #FFFFFF;
+    font-size:12px;
+	text-transform: none;	
+	text-decoration: none;
+    vertical-align:middle;    
+	font-family: "微軟正黑體";  
+}
+
+.div-hidden:before {
+    content:'';
+    width:0;
+    height:50px;
+    display:inline-block;
+    position:relative;
+    vertical-align:middle;  
+    /*border:dashed;
+    border-color:red;*/  
+}
+
+.form-control-inline {
+    display:inline;
+}
+
+.label-desc {
+	font-weight: bold;
+    font-style: normal;
+	font-variant: normal;
+    font-size:16px;
+	text-transform: none;	
+	text-decoration: none;      
+}
+
+div.wide-container {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.small-navbar {
+    margin-top: 0px !important;
+    /*margin-bottom: 0px !important;*/
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+    max-height: 30px;
+}
