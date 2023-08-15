@@ -38,6 +38,7 @@ namespace KMUH.iKASAWebApi.UI.MVC.Controllers
         #region 第一週 Api項目
 
         #region 學生教學儀錶板首頁_學習護照狀況_Api OK
+
         public JsonResult EduPassport(string eduyear, string jobcode, string deptcode, string empcode, string templateid, DateTime? sdate, DateTime? edate, string itemid, DataTable itemdata)
         {
             using (EduActivityContextService service = new EduActivityContextService())
@@ -170,6 +171,7 @@ namespace KMUH.iKASAWebApi.UI.MVC.Controllers
                 return dt;
             }
         }
+        
         #endregion
 
         #region 學生教學儀錶板首頁_臨床照顧能力_Api OK
@@ -224,6 +226,7 @@ namespace KMUH.iKASAWebApi.UI.MVC.Controllers
         #endregion
 
         #region 學生教學儀錶板首頁_教學評量狀況_Api(雷達圖) OK
+        
         public JsonResult IPDChart(string empcode, string memberid)
         {
             using (EduActivityContextService service = new EduActivityContextService())
@@ -263,6 +266,7 @@ namespace KMUH.iKASAWebApi.UI.MVC.Controllers
 
                 if (totalcount == 0)
                 {
+
                 }
                 else
                 {
@@ -270,7 +274,7 @@ namespace KMUH.iKASAWebApi.UI.MVC.Controllers
                     double r2 = (Convert.ToDouble(notfinishcount) / Convert.ToDouble(totalcount)) * Convert.ToDouble(100);
                     double r3 = Convert.ToDouble(100) - r1 - r2;
                     result.Add(new iKASAModel.IPDChat { Status = "已完成", Rate = r1 });
-                    result.Add(new iKASAModel.IPDChat { Status = "未完成", Rate = r2 });
+                    result.Add(new iKASAModel.IPDChat { Status = "期限內待完成", Rate = r2 });
                     result.Add(new iKASAModel.IPDChat { Status = "逾期未完成", Rate = r2 });
                 }
                 return Json(result, "application/json", JsonRequestBehavior.AllowGet);
@@ -288,6 +292,7 @@ namespace KMUH.iKASAWebApi.UI.MVC.Controllers
                 return input;
             }
         }
+        
         #endregion
 
         #region 學生教學儀錶板首頁_學習護照狀況長條圖 OK
@@ -563,8 +568,10 @@ namespace KMUH.iKASAWebApi.UI.MVC.Controllers
                                         Items = g.Select(item => new iKASAModel.PersonalLearningHistory
                                     {
                                         EduTermId = item.EduTermID,
-                                        CourseTitle = item.TermName + "(" + item.TermRange + ")",
-                                    }).ToList()}).ToList();
+                                        //CourseTitle = item.TermName + "(" + item.TermRange + ")",
+                                        CourseTitle = item.TermName + "(" + g.Count().ToString()+ ")",
+                                    }).ToList()
+                                    }).ToList();
 
                     string json = JsonConvert.SerializeObject(Modified, new JsonSerializerSettings
                     {
@@ -1318,12 +1325,12 @@ namespace KMUH.iKASAWebApi.UI.MVC.Controllers
 
                     foreach (var mem in members)
                     {
-                        List<iKASAModel.InternStudentFrom> otherforms = (from ins in Service.UnitOfWork.FORM_INSTANCEs
-                                                                         where ins.INHOSPID == mem.term.EduTermID && (ins.TargetID == mem.mem.IsHospMember || ins.EvalTargetID ==
-                                                                         mem.mem.MemberID) && Service.UnitOfWork.FormCategoryRefs.Count(c => c.CategoryID == catid && c.TEMPLATE_ID ==
-                                                                         ins.TEMPLATE_ID) > 0 && !existsforms.Contains(ins.INSTANCE_ID) && ins.Status != '0' && ins.PARENT_INSTANCE_ID ==
-                                                                         null
-                                                                         select new iKASAModel.InternStudentFrom { Instance_ID = ins.INSTANCE_ID, Lesson = ins.INHOSPID, List = ins.INSTANCE_NAME, CreateTime = ins.INSTANCE_ALTER_DATETIME, }).ToList();
+                      List<iKASAModel.InternStudentFrom> otherforms = (from ins in Service.UnitOfWork.FORM_INSTANCEs
+                                                   where ins.INHOSPID == mem.term.EduTermID && (ins.TargetID == mem.mem.IsHospMember || ins.EvalTargetID ==
+                                                   mem.mem.MemberID) && Service.UnitOfWork.FormCategoryRefs.Count(c => c.CategoryID == catid && c.TEMPLATE_ID ==
+                                                   ins.TEMPLATE_ID) > 0 && !existsforms.Contains(ins.INSTANCE_ID) && ins.Status != '0' && ins.PARENT_INSTANCE_ID ==  null
+                                                   select new iKASAModel.InternStudentFrom { Instance_ID = ins.INSTANCE_ID, Lesson = ins.INHOSPID, List = ins.INSTANCE_NAME, 
+                                                                                             CreateTime = ins.INSTANCE_ALTER_DATETIME, }).ToList();
 
                         existsforms.AddRange(otherforms.Select(c => c.Instance_ID));
 
@@ -1425,7 +1432,7 @@ namespace KMUH.iKASAWebApi.UI.MVC.Controllers
 
         #region 教學門/住診紀錄表_Api OK
 
-        public ActionResult ClinicRecord(string empcode, List<string> groupids, string instanceid)
+        public ActionResult ClinicRecord(string empcode, List<string> groupids, string instanceid, string job)
         {
             try
             {
@@ -1441,18 +1448,30 @@ namespace KMUH.iKASAWebApi.UI.MVC.Controllers
                     RecordInstanceAssembler asm = new RecordInstanceAssembler();
                     RecordInsDetAssembler detasm = new RecordInsDetAssembler();
                     RecordTemplateAssembler tasm = new RecordTemplateAssembler();
-                    //RecordInsViewerAssembler vasm = new RecordInsViewerAssembler();
                     RecordInsReaderAssembler rasm = new RecordInsReaderAssembler();
-                    //RecordInsSignInAssembler siasm = new RecordInsSignInAssembler();
 
                     //紀錄清單&標題
 
                     List<iKASAModel.ClinicRecord> res = new List<iKASAModel.ClinicRecord>(); //根據下拉清單所選擇項目會只帶出指定紀錄表內容
 
+                    var jobMapping = new Dictionary<string, string>
+                    {
+                        { "ck01", "CLERK1" },
+                        { "ck02", "CLERK2" }
+                    };
+
+                    string Jobs = jobMapping.ContainsKey(job) ? jobMapping[job] : "";
+
                     var recs = (from rec in Service.UnitOfWork.RecordInstances
                                 join dep in Service.UnitOfWork.V_departments on
                                 new { dept = rec.DeptCode, hosp = rec.HospCode } equals new { dept = dep.Deptcode, hosp = dep.Hospcode }
-                                where rec.Status == "V" && (rec.RecordInsReaders.Count(c => c.Reader == empcode) > 0 || rec.RecordInsSignIns.Count(c => c.EmpCode == empcode) > 0 || rec.RecordInsViewers.Count(c => c.Viewer == empcode) > 0 || rec.Recoder == empcode) && groupids.Contains(rec.TemplateID.ToString())
+                                where rec.Status == "V" && (rec.RecordInsReaders.Count(c => c.Reader == empcode) > 0
+                                || rec.RecordInsSignIns.Count(c => c.EmpCode == empcode) > 0 || rec.RecordInsViewers.Count(c => c.Viewer == empcode) > 0
+                                || rec.Recoder == empcode)
+                                && groupids.Contains(rec.TemplateID.ToString())
+                                join signIn in Service.UnitOfWork.RecordInsSignIns on rec.InstanceID equals signIn.InstanceID
+                                join mem in Service.UnitOfWork.V_KmuEmps on signIn.EmpCode equals mem.Empcode
+                                where signIn.TargetJob.ToUpper() == Jobs && mem.Empcode == empcode
                                 select new iKASAModel.ClinicRecord
                                 {
                                     Sdate = rec.Sdate,
@@ -1462,7 +1481,7 @@ namespace KMUH.iKASAWebApi.UI.MVC.Controllers
                                     RecordTheme = rec.Title + "",
                                     ConferenceSection = dep.Deptname,
                                     ConferenceTime = rec.Sdate.Value.ToString("yyyy/MM/dd HH:mm") + "~" + rec.Edate.Value.ToString("yyyy/MM/dd HH:mm")
-                                });
+                                }).ToList();
 
                     res = recs.ToList();
 
@@ -1500,25 +1519,6 @@ namespace KMUH.iKASAWebApi.UI.MVC.Controllers
                     result.RecordTemplate = tasm.Assemble(insdata.ins.RecordTemplate);
                     result.RecordInsViewers = GetRecordInsViewer(insdata.ins.InstanceID); //簽核單
                     result.RecordInsReaders = GetRecordInsReader(insdata.ins.InstanceID);
-
-                    //List<iKASAModel.ClinicPatient> PatientData = new List<iKASAModel.ClinicPatient>(); //病患基本資料
-
-                    //if (insdata != null)
-                    //{
-                    //    var RecordInsDets = detasm.Assemble(insdata.ins.RecordInsDets).ToList();
-
-                    //    foreach (var pat in result.RecordInsDets)
-                    //    {
-                    //        var Pat = RecordInsDets.FirstOrDefault(t => t.ControlValue == pat.ControlValue);
-
-                    //        iKASAModel.ClinicPatient dtos = new iKASAModel.ClinicPatient
-                    //        {
-                    //            Patient = pat.ControlValue,
-                    //            Age = pat.ControlValue
-                    //        };
-                    //        PatientData.Add(dtos);
-                    //    }
-                    //}
 
                     List<iKASAModel.ClinicSign> Approval = new List<iKASAModel.ClinicSign>(); //簽核
                     if (insdata != null)
@@ -2025,7 +2025,7 @@ namespace KMUH.iKASAWebApi.UI.MVC.Controllers
                         }
 
                         var itemname = it.item.ItemName;
-                        
+
                         if (!itemcount[title].ContainsKey(itemname))
                         {
                             itemcount[title].Add(itemname, 0);
@@ -2170,56 +2170,6 @@ namespace KMUH.iKASAWebApi.UI.MVC.Controllers
                 throw ex;
             }
         }
-
-        //public ActionResult PassPortContent(string IitemID)
-        //{
-        //    try
-        //    {
-        //        using (EduActivityContextService Service = new EduActivityContextService())
-        //        {
-        //            var detData = ReadDetData();
-
-        //            List<iKASAModel.PassPortForm> result = new List<iKASAModel.PassPortForm>();
-
-        //            var query = from item in Service.UnitOfWork.EduPassportInsItemDets where item.IItemID == IitemID select new { item };
-
-        //            iKASAModel.PassPortListTitle dtos = new iKASAModel.PassPortListTitle();
-
-        //            dtos.PassPort =  detData.PassPort; //護照名稱
-        //            dtos.ItemName = detData.ItemName; //項目
-        //            dtos.SubmitTime = detData.SubmitTime; //送審時間
-        //            dtos.TeacherName = detData.TeacherName; //審核老師
-        //            dtos.CurrentStatus = detData.CurrentStatus; //目前狀態
-        //            dtos.ModifyDate = detData.ModifyDate;//審核日期
-
-        //            foreach (var im in query)
-        //            {
-        //                if (im.item != null)
-        //                {
-        //                    iKASAModel.PassPortForm dto = new iKASAModel.PassPortForm();
-        //                    dto.FieldItem = im.item.FieldDesc; //項目名稱
-        //                    dto.FieldValue = im.item.FieldValue; //項目內容
-        //                    result.Add(dto);
-        //                }
-        //            }
-
-        //            var response = new
-        //            {
-        //                Title = dtos,
-        //                Form = result,
-        //            };
-        //            string json = JsonConvert.SerializeObject(response, new JsonSerializerSettings
-        //            {
-        //                DateFormatString = "yyyy/MM/dd HH:mm"
-        //            });
-        //            return Content(json, "application/json");
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //}
 
         private iKASAModel.PassPortListTitle ReadDetData()
         {
@@ -2668,25 +2618,25 @@ namespace KMUH.iKASAWebApi.UI.MVC.Controllers
 
                     foreach (var mem in members)
                     {
-                        List<iKASAModel.MiniCEX> otherforms = (from ins in Service.UnitOfWork.FORM_INSTANCEs
-                                                               where ins.INHOSPID == mem.term.EduTermID && (ins.TargetID == mem.mem.IsHospMember || ins.EvalTargetID ==
-                                                               mem.mem.MemberID) && Service.UnitOfWork.FormCategoryRefs.Count(c => c.CategoryID == catid && c.TEMPLATE_ID ==
-                                                               ins.TEMPLATE_ID) > 0 && !existsforms.Contains(ins.INSTANCE_ID) && ins.Status != '0' && ins.PARENT_INSTANCE_ID ==
-                                                               null
-                                                               select new iKASAModel.MiniCEX
-                                                               {
-                                                                   Instance_ID = ins.INSTANCE_ID,
-                                                                   INHOSPID = ins.INHOSPID,
-                                                                   Lesson = ins.INHOSPID,
-                                                                   List = ins.INSTANCE_NAME,
-                                                                   CreateTime = ins.INSTANCE_CREATE_DATETIME
-                                                               }).ToList();
+                      List<iKASAModel.MiniCEX> otherforms = (from ins in Service.UnitOfWork.FORM_INSTANCEs
+                                               where ins.INHOSPID == mem.term.EduTermID && (ins.TargetID == mem.mem.IsHospMember || ins.EvalTargetID ==
+                                               mem.mem.MemberID) && Service.UnitOfWork.FormCategoryRefs.Count(c => c.CategoryID == catid && c.TEMPLATE_ID ==
+                                               ins.TEMPLATE_ID) > 0 && !existsforms.Contains(ins.INSTANCE_ID) && ins.Status != '0' && ins.PARENT_INSTANCE_ID == null
+                                               select new iKASAModel.MiniCEX
+                                               {
+                                                 Instance_ID = ins.INSTANCE_ID,
+                                                 INHOSPID = ins.INHOSPID,
+                                                 Lesson = ins.INHOSPID,
+                                                 List = ins.INSTANCE_NAME,
+                                                 CreateTime = ins.INSTANCE_CREATE_DATETIME
+                                               }).ToList();
 
                         existsforms.AddRange(otherforms.Select(c => c.Instance_ID));
 
                         List<int> pidlist = (from ins in Service.UnitOfWork.FORM_INSTANCEs
                                              where ins.INHOSPID == mem.term.EduTermID
-                                             && (ins.TargetID == mem.mem.IsHospMember || ins.EvalTargetID == mem.mem.MemberID) && !existsforms.Contains(ins.INSTANCE_ID)
+                                             && (ins.TargetID == mem.mem.IsHospMember || ins.EvalTargetID == mem.mem.MemberID) && !existsforms.Contains
+                                             (ins.INSTANCE_ID)
                                              && ins.Status != '0' && ins.PARENT_INSTANCE_ID != null
                                              && Service.UnitOfWork.FORM_INSTANCEs.Count(c => c.PARENT_INSTANCE_ID == ins.PARENT_INSTANCE_ID && c.Status == '0') == 0
                                              && Service.UnitOfWork.FormCategoryRefs.Count(c => c.CategoryID == catid && c.TEMPLATE_ID ==
@@ -4035,25 +3985,26 @@ namespace KMUH.iKASAWebApi.UI.MVC.Controllers
                     foreach (var mem in members)
                     {
                         List<iKASAModel.MiniCEXScore> otherforms = (from ins in Service.UnitOfWork.FORM_INSTANCEs
-                                                                    where ins.INHOSPID == mem.term.EduTermID && (ins.TargetID == mem.mem.IsHospMember || ins.EvalTargetID ==
-                                                                    mem.mem.MemberID) && Service.UnitOfWork.FormCategoryRefs.Count(c => c.CategoryID == catid && c.TEMPLATE_ID ==
-                                                                    ins.TEMPLATE_ID) > 0 && !existsforms.Contains(ins.INSTANCE_ID) && ins.Status != '0'
-                                                                    && ins.PARENT_INSTANCE_ID == null
-                                                                    select new iKASAModel.MiniCEXScore
-                                                            {
-                                                                Instance_ID = ins.INSTANCE_ID,
-                                                                INHOSPID = ins.INHOSPID,
-                                                                Lesson = ins.INHOSPID,
-                                                                List = ins.INSTANCE_NAME,
-                                                                CreateTime = ins.INSTANCE_CREATE_DATETIME,
-                                                                TempID = ins.TEMPLATE_ID
-                                                            }).ToList();
+                                                 where ins.INHOSPID == mem.term.EduTermID && (ins.TargetID == mem.mem.IsHospMember || ins.EvalTargetID ==
+                                                 mem.mem.MemberID) && Service.UnitOfWork.FormCategoryRefs.Count(c => c.CategoryID == catid && c.TEMPLATE_ID ==
+                                                 ins.TEMPLATE_ID) > 0 && !existsforms.Contains(ins.INSTANCE_ID) && ins.Status != '0'
+                                                 && ins.PARENT_INSTANCE_ID == null
+                                                 select new iKASAModel.MiniCEXScore
+                                                 {
+                                                    Instance_ID = ins.INSTANCE_ID,
+                                                    INHOSPID = ins.INHOSPID,
+                                                    Lesson = ins.INHOSPID,
+                                                    List = ins.INSTANCE_NAME,
+                                                    CreateTime = ins.INSTANCE_CREATE_DATETIME,
+                                                    TempID = ins.TEMPLATE_ID
+                                                 }).ToList();
 
                         existsforms.AddRange(otherforms.Select(c => c.Instance_ID));
 
                         List<int> pidlist = (from ins in Service.UnitOfWork.FORM_INSTANCEs
                                              where ins.INHOSPID == mem.term.EduTermID
-                                             && (ins.TargetID == mem.mem.IsHospMember || ins.EvalTargetID == mem.mem.MemberID) && !existsforms.Contains(ins.INSTANCE_ID)
+                                             && (ins.TargetID == mem.mem.IsHospMember || ins.EvalTargetID == mem.mem.MemberID) 
+                                             && !existsforms.Contains (ins.INSTANCE_ID)
                                              && ins.Status != '0' && ins.PARENT_INSTANCE_ID != null
                                              && Service.UnitOfWork.FORM_INSTANCEs.Count(c => c.PARENT_INSTANCE_ID == ins.PARENT_INSTANCE_ID && c.Status == '0') == 0
                                              && Service.UnitOfWork.FormCategoryRefs.Count(c => c.CategoryID == catid && c.TEMPLATE_ID ==
@@ -4208,18 +4159,86 @@ namespace KMUH.iKASAWebApi.UI.MVC.Controllers
 
         #region 傑出表現
 
-        //public JsonResult aj(string empcode)
-        //{
-        //    try
-        //    {
+        public ActionResult aj(string empcode)
+        {
+            try
+            {
+                //using (EduActivityContextService Service = new EduActivityContextService())
+                //{
+                //    List<iKASAModel.OutstandingList> res = (from emp in Service.UnitOfWork.V_KmuEmps
+                //                                            join att in Service.UnitOfWork.OutstandindAttendees on emp.Empcode equals att.EmpNo
+                //                                            join perf in Service.UnitOfWork.OutstandindPerformances on att.OutstandindPerformanceID equals perf.ID
+                //                                            where emp.Empcode == empcode
+                //                                            select new iKASAModel.OutstandingList
+                //                                            {
+                //                                                Id = perf.ID,
+                //                                                EmpName = emp.Empname,
+                //                                                Date = perf.ActiveDates,
+                //                                                ActiveName = perf.CompetitionTheme,
+                //                                                ActiveAwards = perf.CompetitionTheme,
+                //                                            }).ToList();
 
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //}
+                //    return Json(res, JsonRequestBehavior.AllowGet);
+                //}
+                List<iKASAModel.OutstandingList> res = new List<iKASAModel.OutstandingList>();
 
+                using(SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["CICEntities"].ConnectionString))
+	            {
+                    conn.Open();
+
+                    // 先查詢子表OutstandingAttendees，找到符合條件的EmpNo
+                    var query = "Select EmpNo From OutstandingAttendees Where EmpNo = @EmpCode";
+
+                    SqlCommand cmd = new SqlCommand(query, conn);
+
+                    cmd.Parameters.AddWithValue("@EmpCode", empcode);
+
+                    string EmpNo = cmd.ExecuteScalar() as string;
+
+                    if (!string.IsNullOrEmpty(EmpNo))
+                    {
+                        string dto = @"SELECT op.ID, op.CompetitionTheme, op.Organizer, op.ActiveDates, oa.EmpName 
+                        FROM OutstandingPerformance as op
+                        INNER JOIN OutstandingAttendees as oa ON op.ID = oa.OutstandingPerformanceID
+                        WHERE oa.EmpNo = @EmpNo";
+
+                        SqlCommand dt = new SqlCommand(dto, conn);
+                        dt.Parameters.AddWithValue("@EmpNo", EmpNo);
+
+                        using (SqlDataReader reader = dt.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                iKASAModel.OutstandingList record = new iKASAModel.OutstandingList
+                                {
+                                    Id = Convert.ToInt32(reader["ID"]),
+                                    EmpName = reader["EmpName"].ToString(),
+                                    Date = Convert.ToDateTime(reader["ActiveDates"]),
+                                    ActiveName = reader["CompetitionTheme"].ToString(),
+                                    ActiveAwards = reader["CompetitionTheme"].ToString(),
+                                    Organizer = reader["Organizer"].ToString()
+                                };
+                                res.Add(record);
+                            }
+                        }
+                    }
+
+                    var dtos = new JsonSerializerSettings
+                    {
+                        DateFormatString = "yyyy-MM-dd"
+                    };
+
+                    string json = JsonConvert.SerializeObject(res, dtos);
+
+                    // 將結果以JSON格式回傳
+                    return Content(json, "application/json");
+	            } 
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
         #endregion
 
@@ -4228,6 +4247,5 @@ namespace KMUH.iKASAWebApi.UI.MVC.Controllers
         #endregion
 
         #endregion
-
     }
 }

@@ -486,5 +486,15 @@ namespace KMUH.iKASAWebApi.UI.MVC.Models
             public string Title { get; set; }
         }
         #endregion
+
+        public class OutstandingList //傑出表現
+        {
+            public int Id { get; set; }
+            public string EmpName { get; set; }
+            public DateTime? Date { get; set; }
+            public string ActiveName { get; set; }
+            public string ActiveAwards { get; set; }
+            public string Organizer { get; set; }
+        }
     }
 }
